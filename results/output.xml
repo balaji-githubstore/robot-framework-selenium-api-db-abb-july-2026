@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-29T16:51:33.207958" rpa="false" schemaversion="5">
+<suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
+<suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
+<suite id="s1-s1-s1" name="Demo1 Basics Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo1_basics_suite.robot">
+<test id="s1-s1-s1-t1" name="TC4" line="41">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-07-29T16:51:33.743653" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-07-29T16:51:33.742833" elapsed="0.978901"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-07-29T16:51:34.722321" elapsed="0.033129"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-07-29T16:51:34.756136" elapsed="0.001847"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-29T16:51:34.758750" level="INFO">Opening url 'https://www.medibuddy.in/'</msg>
+<arg>url=https://www.medibuddy.in/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-29T16:51:34.758407" elapsed="2.452261"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-07-29T16:51:37.213447" level="INFO">Clicking element 'link=Login'.</msg>
+<arg>link=Login</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-29T16:51:37.211791" elapsed="0.379395"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-07-29T16:51:42.592422" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-07-29T16:51:37.591686" elapsed="5.001385"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-29T16:51:42.594061" level="INFO">Typing text '89898989' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>89898989</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-29T16:51:42.593510" elapsed="0.205824"/>
+</kw>
+<status status="PASS" start="2026-07-29T16:51:33.721076" elapsed="9.078812"/>
+</test>
+<status status="PASS" start="2026-07-29T16:51:33.276212" elapsed="9.535588"/>
+</suite>
+<status status="PASS" start="2026-07-29T16:51:33.269771" elapsed="9.557795"/>
+</suite>
+<status status="PASS" start="2026-07-29T16:51:33.212451" elapsed="9.624232"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
+<stat name="Demo3 Selenium Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
+<stat name="Demo1 Basics Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo1 Basics Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

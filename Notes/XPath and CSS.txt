@@ -1,0 +1,13 @@
+XPath 
+
+Absolute XPath (not recommended)- /html/body/div[1]/div/div/div/form[1]/div[5]
+
+Relative XPath - 
+//tagname[@attribute='']
+//tagname[text()='']
+
+Example: Verify in chrome (ctrl+f)
+//div[@role='button']
+
+//div[text()='I have a Corporate Account']
+//a[text()='Learn More']

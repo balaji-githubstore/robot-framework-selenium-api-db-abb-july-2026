@@ -1,82 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T15:16:38.010075" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T17:34:07.802041" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
-<suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
-<suite id="s1-s1-s1" name="Demo5 Advance Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo5_advance_suite.robot">
-<test id="s1-s1-s1-t1" name="TC5 Javascript Option 2" line="55">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:38.477020" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<arg>browser=chrome</arg>
-<arg>options=add_argument("start-maximized");add_argument("--disable-notifications")</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-30T15:16:38.476116" elapsed="1.661886"/>
+<suite id="s1-s1" name="Demo4 Api Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite">
+<suite id="s1-s1-s1" name="Demo2 Post Put Delete Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite\demo2_post_put_delete_suite.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-07-30T17:34:07.921062" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=petstore</arg>
+<arg>url=https://petstore.swagger.io/v2</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-30T17:34:07.920784" elapsed="0.000546"/>
 </kw>
-<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
-<arg>20s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-30T15:16:40.138752" elapsed="0.001939"/>
+<test id="s1-s1-s1-t1" name="TC2 Update Valid Pet To Store" line="17">
+<kw name="Get File For Streaming Upload" owner="RequestsLibrary">
+<msg time="2026-07-30T17:34:07.926366" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt;</msg>
+<var>${req_json_body}</var>
+<arg>path=${EXECDIR}${/}test-data${/}update_pet.json</arg>
+<doc>Opens and returns a file descriptor of a specified file to be passed as ``data`` parameter
+to other requests keywords.</doc>
+<status status="PASS" start="2026-07-30T17:34:07.925932" elapsed="0.000564"/>
 </kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:40.141615" level="INFO">Opening url 'https://www.malaysiaairlines.com/us/en/home.html'</msg>
-<arg>url=https://www.malaysiaairlines.com/us/en/home.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-30T15:16:40.141252" elapsed="0.381272"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-30T17:34:07.927354" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive }</msg>
+<var>&amp;{headers}</var>
+<arg>content-type=application/json</arg>
+<arg>connection=keep-alive</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-30T17:34:07.926802" elapsed="0.000655"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:40.524375" level="INFO">Clicking element 'xpath=//span[text()='Accept all cookies']'.</msg>
-<arg>xpath=//span[text()='Accept all cookies']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T15:16:40.523108" elapsed="1.230696"/>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2026-07-30T17:34:08.880712" level="INFO">PUT Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '255'} 
+ body=&lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt; 
+ </msg>
+<msg time="2026-07-30T17:34:08.882448" level="INFO">PUT Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 30 Jul 2026 12:04:09 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808-update","photoUrls":["string"],"tags":[{"id":450,"name":"updated tags"}],"status":"available"} 
+ </msg>
+<msg time="2026-07-30T17:34:08.883031" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-30T17:34:08.886216" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${req_json_body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-30T17:34:07.927739" elapsed="0.959183"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:41.755060" level="INFO">Clicking element 'xpath=//span[text()='Multi-city']'.</msg>
-<arg>xpath=//span[text()='Multi-city']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T15:16:41.754476" elapsed="0.627725"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-07-30T17:34:08.889975" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808-update', 'photoUrls': ['string'], 'tags': [{'id': 450, 'name': 'updated tags'}], 'status': 'available'}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-07-30T17:34:08.888633" elapsed="0.001725"/>
 </kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:42.398499" level="INFO">${dep_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.20")&gt;</msg>
-<var>${dep_element}</var>
-<arg>xpath=//div[@id='multi-city']//input[@aria-label="Depart"]</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2026-07-30T15:16:42.382865" elapsed="0.016037"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:42.400706" level="INFO">Executing JavaScript:
-arguments[0].value="20 Aug 2026"
-By using argument:
-'&lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.20")&gt;'</msg>
-<arg>arguments[0].value="20 Aug 2026"</arg>
-<arg>ARGUMENTS</arg>
-<arg>${dep_element}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-07-30T15:16:42.399692" elapsed="0.007109"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:42.424171" level="INFO">${ret_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.24")&gt;</msg>
-<var>${ret_element}</var>
-<arg>xpath=(//div[@id='multi-city']//input[@aria-label="Depart"])[2]</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2026-07-30T15:16:42.407305" elapsed="0.017315"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-07-30T15:16:42.426668" level="INFO">Executing JavaScript:
-arguments[0].value="20 Sep 2026"
-By using argument:
-'&lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.24")&gt;'</msg>
-<arg>arguments[0].value="20 Sep 2026"</arg>
-<arg>ARGUMENTS</arg>
-<arg>${ret_element}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-07-30T15:16:42.425634" elapsed="0.010701"/>
-</kw>
-<status status="PASS" start="2026-07-30T15:16:38.456803" elapsed="3.980812"/>
+<status status="PASS" start="2026-07-30T17:34:07.921515" elapsed="0.969516"/>
 </test>
-<status status="PASS" start="2026-07-30T15:16:38.093284" elapsed="4.367256"/>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2026-07-30T17:34:08.917351" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2026-07-30T17:34:08.916856" elapsed="0.001033"/>
+</kw>
+<status status="PASS" start="2026-07-30T17:34:07.849707" elapsed="1.068394"/>
 </suite>
-<status status="PASS" start="2026-07-30T15:16:38.086548" elapsed="4.389675"/>
+<status status="PASS" start="2026-07-30T17:34:07.846233" elapsed="1.080419"/>
 </suite>
-<status status="PASS" start="2026-07-30T15:16:38.021003" elapsed="4.472402"/>
+<status status="PASS" start="2026-07-30T17:34:07.806777" elapsed="1.126495"/>
 </suite>
 <statistics>
 <total>
@@ -86,8 +77,8 @@ By using argument:
 </tag>
 <suite>
 <stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
-<stat name="Demo3 Selenium Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
-<stat name="Demo5 Advance Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo5 Advance Suite</stat>
+<stat name="Demo4 Api Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite</stat>
+<stat name="Demo2 Post Put Delete Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite.Demo2 Post Put Delete Suite</stat>
 </suite>
 </statistics>
 <errors>

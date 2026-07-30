@@ -52,3 +52,4 @@ TC6
     Log To Console    ${TEMPDIR}
     Log To Console    ${TEST_NAME}
     Log To Console    ${SUITE_NAME}
+    Log To Console    ${EXECDIR}${/}test-data${/}new_pet.json

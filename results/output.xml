@@ -1,44 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:39:39.074112" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:58:15.663439" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
 <suite id="s1-s1-s1" name="Demo5 Advance Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo5_advance_suite.robot">
-<test id="s1-s1-s1-t1" name="TC1 Upload" line="6">
+<test id="s1-s1-s1-t1" name="TC3 CSS Selector" line="13">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:39:39.353886" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<msg time="2026-07-30T12:58:16.098630" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
 <arg>browser=chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:39:39.353537" elapsed="0.689525"/>
+<status status="PASS" start="2026-07-30T12:58:16.097776" elapsed="1.022761"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-07-30T12:39:40.043601" elapsed="0.033962"/>
+<status status="PASS" start="2026-07-30T12:58:17.120963" elapsed="0.036117"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-30T12:39:40.078406" elapsed="0.001446"/>
+<status status="PASS" start="2026-07-30T12:58:17.157545" elapsed="0.001258"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:39:40.080482" level="INFO">Opening url 'https://www.ilovepdf.com/pdf_to_word'</msg>
-<arg>url=https://www.ilovepdf.com/pdf_to_word</arg>
+<msg time="2026-07-30T12:58:17.159393" level="INFO">Opening url 'https://orangehrm.com/book-a-free-demo'</msg>
+<arg>url=https://orangehrm.com/book-a-free-demo</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:39:40.080228" elapsed="2.389436"/>
+<status status="PASS" start="2026-07-30T12:58:17.159113" elapsed="2.970210"/>
 </kw>
-<kw name="Choose File" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:39:42.471412" level="INFO">Sending D:\Mine\Balaji Dinakaran Trainer Profile AI 2026.pdf to browser.</msg>
-<arg>xpath=//input[@type='file']</arg>
-<arg>D:${/}Mine${/}Balaji Dinakaran Trainer Profile AI 2026.pdf</arg>
-<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:39:42.470424" elapsed="0.059606"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:20.130863" level="INFO">Clicking element 'id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'.</msg>
+<arg>id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:58:20.130084" elapsed="0.071696"/>
 </kw>
-<status status="PASS" start="2026-07-30T12:39:39.347133" elapsed="3.183561"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:20.203696" level="INFO">Typing text 'John wick' into text field 'css=#Form_getForm_FullName'.</msg>
+<arg>css=#Form_getForm_FullName</arg>
+<arg>John wick</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:58:20.202545" elapsed="0.175299"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:20.380233" level="INFO">Typing text 'john@gmail.com' into text field 'css=#Form_getForm_Email'.</msg>
+<arg>css=#Form_getForm_Email</arg>
+<arg>john@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:58:20.378987" elapsed="0.233193"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:20.614197" level="INFO">Selecting options from selection list 'css=#Form_getForm_Country' by label India.</msg>
+<arg>css=#Form_getForm_Country</arg>
+<arg>India</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-07-30T12:58:20.613217" elapsed="0.340085"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:20.955594" level="INFO">Typing text 'ABB' into text field 'css=input[name='CompanyName']'.</msg>
+<arg>css=input[name='CompanyName']</arg>
+<arg>ABB</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:58:20.954345" elapsed="0.140558"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:58:21.096932" level="INFO">Clicking element 'css=input[value='Get a Free Demo']'.</msg>
+<arg>css=input[value='Get a Free Demo']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:58:21.096107" elapsed="2.177224"/>
+</kw>
+<status status="PASS" start="2026-07-30T12:58:16.089200" elapsed="7.184832"/>
 </test>
-<status status="PASS" start="2026-07-30T12:39:39.122672" elapsed="3.421645"/>
+<status status="PASS" start="2026-07-30T12:58:15.721407" elapsed="7.564541"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:39:39.119272" elapsed="3.431400"/>
+<status status="PASS" start="2026-07-30T12:58:15.716723" elapsed="7.584518"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:39:39.078119" elapsed="3.492406"/>
+<status status="PASS" start="2026-07-30T12:58:15.668104" elapsed="7.649023"/>
 </suite>
 <statistics>
 <total>

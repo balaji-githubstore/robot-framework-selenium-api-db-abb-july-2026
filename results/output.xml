@@ -1,83 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T11:46:37.553715" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:21:25.891255" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
-<suite id="s1-s1-s1" name="Demo3 Frame Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo3_frame_suite.robot">
-<test id="s1-s1-s1-t1" name="TC3 Frame" line="22">
+<suite id="s1-s1-s1" name="Demo4 Alert Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo4_alert_suite.robot">
+<test id="s1-s1-s1-t1" name="TC3 Javascript alert" line="31">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:38.081662" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<msg time="2026-07-30T12:21:26.452708" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
 <arg>browser=chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-30T11:46:38.080664" elapsed="0.985134"/>
+<status status="PASS" start="2026-07-30T12:21:26.451878" elapsed="1.031601"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.066365" elapsed="0.026880"/>
+<status status="PASS" start="2026-07-30T12:21:27.483822" elapsed="0.031111"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.093991" elapsed="0.001784"/>
+<status status="PASS" start="2026-07-30T12:21:27.515937" elapsed="0.001585"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:39.096526" level="INFO">Opening url 'https://app.thetestingacademy.com/playwright/frames/'</msg>
-<arg>url=https://app.thetestingacademy.com/playwright/frames/</arg>
+<msg time="2026-07-30T12:21:27.519072" level="INFO">Opening url 'https://www.nasscom.in/nasscom-membership'</msg>
+<arg>url=https://www.nasscom.in/nasscom-membership</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.096175" elapsed="0.431265"/>
-</kw>
-<kw name="Select Frame" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:39.529477" level="INFO">Selecting frame 'xpath=//iframe[@name='vehicle-form']'.</msg>
-<arg>xpath=//iframe[@name='vehicle-form']</arg>
-<doc>Sets frame identified by ``locator`` as the current frame.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.528493" elapsed="0.063880"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:39.594251" level="INFO">Typing text 'creta' into text field 'name=vehicleName'.</msg>
-<arg>name=vehicleName</arg>
-<arg>creta</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.593232" elapsed="0.151847"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:39.746862" level="INFO">Typing text 'creta' into text field 'name=ownerName'.</msg>
-<arg>name=ownerName</arg>
-<arg>creta</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.746086" elapsed="0.095987"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:39.843441" level="INFO">Selecting options from selection list 'name=vehicleType' by label SUV.</msg>
-<arg>name=vehicleType</arg>
-<arg>SUV</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.842778" elapsed="0.103847"/>
+<status status="PASS" start="2026-07-30T12:21:27.518278" elapsed="2.236042"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=vehicle-submit</arg>
+<arg>id=calculate-fee</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-07-30T11:46:39.947259" elapsed="0.325019"/>
+<status status="PASS" start="2026-07-30T12:21:29.754871" elapsed="0.323824"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T11:46:40.274413" level="INFO">Clicking element 'id=vehicle-submit'.</msg>
-<arg>id=vehicle-submit</arg>
+<msg time="2026-07-30T12:21:30.080413" level="INFO">Clicking element 'id=calculate-fee'.</msg>
+<arg>id=calculate-fee</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T11:46:40.273518" elapsed="0.117486"/>
+<status status="PASS" start="2026-07-30T12:21:30.079608" elapsed="0.104343"/>
 </kw>
-<kw name="Unselect Frame" owner="SeleniumLibrary">
-<doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" start="2026-07-30T11:46:40.391520" elapsed="0.002271"/>
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:21:30.185859" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>text=Please enter the total revenue greater than ZERO.</arg>
+<arg>action=ACCEPT</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2026-07-30T12:21:30.184961" elapsed="0.014855"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-07-30T11:46:40.394287" elapsed="2.108484"/>
+<status status="PASS" start="2026-07-30T12:21:30.201496" elapsed="2.270665"/>
 </kw>
-<status status="PASS" start="2026-07-30T11:46:38.059362" elapsed="4.444045"/>
+<status status="PASS" start="2026-07-30T12:21:26.429611" elapsed="6.043114"/>
 </test>
-<status status="PASS" start="2026-07-30T11:46:37.601739" elapsed="4.912288"/>
+<status status="PASS" start="2026-07-30T12:21:25.972795" elapsed="6.510256"/>
 </suite>
-<status status="PASS" start="2026-07-30T11:46:37.598301" elapsed="4.939219"/>
+<status status="PASS" start="2026-07-30T12:21:25.966114" elapsed="6.525904"/>
 </suite>
-<status status="PASS" start="2026-07-30T11:46:37.558134" elapsed="4.988779"/>
+<status status="PASS" start="2026-07-30T12:21:25.900046" elapsed="6.605886"/>
 </suite>
 <statistics>
 <total>
@@ -88,7 +64,7 @@
 <suite>
 <stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
 <stat name="Demo3 Selenium Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
-<stat name="Demo3 Frame Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo3 Frame Suite</stat>
+<stat name="Demo4 Alert Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo4 Alert Suite</stat>
 </suite>
 </statistics>
 <errors>

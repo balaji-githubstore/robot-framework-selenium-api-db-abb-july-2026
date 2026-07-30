@@ -6,8 +6,79 @@ Relative XPath -
 //tagname[@attribute='']
 //tagname[text()='']
 
+
+Contains
+//tagname[contains(@attribute,'')]
+//tagname[contains(text(),'')]
+
+
+Grouping of xpath - start at 1
+(//input[@type='file'])[2]
+
+
+Upload 
+//input[@type='file']
+
+
+And - or 
+//input[@type='file' and @id='edit-field-audited-balance-sheet-for-0-upload']
+
+
+Parent-child 
+
+ancestor - descendant
+
+
+
+//div[@id='multi-city']//input[@aria-label="Depart"]
+(//div[@id='multi-city']//input[@aria-label="Depart"])[2]
+following - preceding 
+
+following sibling 
+
 Example: Verify in chrome (ctrl+f)
 //div[@role='button']
-
 //div[text()='I have a Corporate Account']
 //a[text()='Learn More']
+//a[@href='http://www.orangehrm.com']
+
+//a[contains(@href,'orangehrm.com')]
+//a[contains(text(),'Inc')]
+
+
+//h1[contains(text(),'About the Open')]
+//p[contains(text(),'nonprofit organization')]
+//span[contains(text(),'Continue with Google')]
+
+//iframe[contains(@src,'registration-form')]
+
+-----------------------------------------------------
+CSS Selectors - https://www.w3schools.com/cssref/css_selectors.php
+#id
+.classname
+[attribute='']
+tagname[attribute='']
+
+
+descendant 
+div[id='multi-city'] input[aria-label="Depart"]
+
+Example:
+#Form_getForm_FullName
+[name='CompanyName']
+input[name='CompanyName']
+input[value='Get a Free Demo']
+
+
+
+
+------------------------------
+javascript 
+document.querySelectorAll("input[aria-label='Return']").value="20 Aug 2026"
+document.querySelectorAll("input[aria-label='Depart']")[1].value='03 Sep 2026'
+
+
+
+
+
+

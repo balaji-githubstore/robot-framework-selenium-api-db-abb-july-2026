@@ -1,59 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:21:25.891255" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:39:39.074112" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
-<suite id="s1-s1-s1" name="Demo4 Alert Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo4_alert_suite.robot">
-<test id="s1-s1-s1-t1" name="TC3 Javascript alert" line="31">
+<suite id="s1-s1-s1" name="Demo5 Advance Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo5_advance_suite.robot">
+<test id="s1-s1-s1-t1" name="TC1 Upload" line="6">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:21:26.452708" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<msg time="2026-07-30T12:39:39.353886" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
 <arg>browser=chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:21:26.451878" elapsed="1.031601"/>
+<status status="PASS" start="2026-07-30T12:39:39.353537" elapsed="0.689525"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-07-30T12:21:27.483822" elapsed="0.031111"/>
+<status status="PASS" start="2026-07-30T12:39:40.043601" elapsed="0.033962"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-30T12:21:27.515937" elapsed="0.001585"/>
+<status status="PASS" start="2026-07-30T12:39:40.078406" elapsed="0.001446"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:21:27.519072" level="INFO">Opening url 'https://www.nasscom.in/nasscom-membership'</msg>
-<arg>url=https://www.nasscom.in/nasscom-membership</arg>
+<msg time="2026-07-30T12:39:40.080482" level="INFO">Opening url 'https://www.ilovepdf.com/pdf_to_word'</msg>
+<arg>url=https://www.ilovepdf.com/pdf_to_word</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:21:27.518278" elapsed="2.236042"/>
+<status status="PASS" start="2026-07-30T12:39:40.080228" elapsed="2.389436"/>
 </kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=calculate-fee</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-07-30T12:21:29.754871" elapsed="0.323824"/>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2026-07-30T12:39:42.471412" level="INFO">Sending D:\Mine\Balaji Dinakaran Trainer Profile AI 2026.pdf to browser.</msg>
+<arg>xpath=//input[@type='file']</arg>
+<arg>D:${/}Mine${/}Balaji Dinakaran Trainer Profile AI 2026.pdf</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2026-07-30T12:39:42.470424" elapsed="0.059606"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:21:30.080413" level="INFO">Clicking element 'id=calculate-fee'.</msg>
-<arg>id=calculate-fee</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:21:30.079608" elapsed="0.104343"/>
-</kw>
-<kw name="Alert Should Be Present" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:21:30.185859" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<arg>text=Please enter the total revenue greater than ZERO.</arg>
-<arg>action=ACCEPT</arg>
-<doc>Verifies that an alert is present and by default, accepts it.</doc>
-<status status="PASS" start="2026-07-30T12:21:30.184961" elapsed="0.014855"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-07-30T12:21:30.201496" elapsed="2.270665"/>
-</kw>
-<status status="PASS" start="2026-07-30T12:21:26.429611" elapsed="6.043114"/>
+<status status="PASS" start="2026-07-30T12:39:39.347133" elapsed="3.183561"/>
 </test>
-<status status="PASS" start="2026-07-30T12:21:25.972795" elapsed="6.510256"/>
+<status status="PASS" start="2026-07-30T12:39:39.122672" elapsed="3.421645"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:21:25.966114" elapsed="6.525904"/>
+<status status="PASS" start="2026-07-30T12:39:39.119272" elapsed="3.431400"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:21:25.900046" elapsed="6.605886"/>
+<status status="PASS" start="2026-07-30T12:39:39.078119" elapsed="3.492406"/>
 </suite>
 <statistics>
 <total>
@@ -64,7 +49,7 @@
 <suite>
 <stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
 <stat name="Demo3 Selenium Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
-<stat name="Demo4 Alert Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo4 Alert Suite</stat>
+<stat name="Demo5 Advance Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo5 Advance Suite</stat>
 </suite>
 </statistics>
 <errors>

@@ -40,3 +40,15 @@ TC5
 
     &{mobile_dic}    Create Dictionary    mobile=android    os=9    model=oneplus
     Log To Console    ${mobile_dic}[model]
+
+
+TC6
+    Log To Console    D:\\Mine\\Balaji Dinakaran Trainer Profile AI 2026.pdf
+    Log To Console    D:${/}Mine${/}Balaji Dinakaran Trainer Profile AI 2026.pdf
+    Log To Console    hello${SPACE}${SPACE}world
+    Log To Console    ${CURDIR}
+    Log To Console    ${EXECDIR}
+    Log To Console    ${OUTPUT_DIR}
+    Log To Console    ${TEMPDIR}
+    Log To Console    ${TEST_NAME}
+    Log To Console    ${SUITE_NAME}

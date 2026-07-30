@@ -1,77 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T12:58:15.663439" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T15:16:38.010075" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
 <suite id="s1-s1-s1" name="Demo5 Advance Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo5_advance_suite.robot">
-<test id="s1-s1-s1-t1" name="TC3 CSS Selector" line="13">
+<test id="s1-s1-s1-t1" name="TC5 Javascript Option 2" line="55">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:16.098630" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<msg time="2026-07-30T15:16:38.477020" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
 <arg>browser=chrome</arg>
+<arg>options=add_argument("start-maximized");add_argument("--disable-notifications")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:58:16.097776" elapsed="1.022761"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-07-30T12:58:17.120963" elapsed="0.036117"/>
+<status status="PASS" start="2026-07-30T15:16:38.476116" elapsed="1.661886"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-30T12:58:17.157545" elapsed="0.001258"/>
+<status status="PASS" start="2026-07-30T15:16:40.138752" elapsed="0.001939"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:17.159393" level="INFO">Opening url 'https://orangehrm.com/book-a-free-demo'</msg>
-<arg>url=https://orangehrm.com/book-a-free-demo</arg>
+<msg time="2026-07-30T15:16:40.141615" level="INFO">Opening url 'https://www.malaysiaairlines.com/us/en/home.html'</msg>
+<arg>url=https://www.malaysiaairlines.com/us/en/home.html</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-30T12:58:17.159113" elapsed="2.970210"/>
+<status status="PASS" start="2026-07-30T15:16:40.141252" elapsed="0.381272"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:20.130863" level="INFO">Clicking element 'id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'.</msg>
-<arg>id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll</arg>
+<msg time="2026-07-30T15:16:40.524375" level="INFO">Clicking element 'xpath=//span[text()='Accept all cookies']'.</msg>
+<arg>xpath=//span[text()='Accept all cookies']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:58:20.130084" elapsed="0.071696"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:20.203696" level="INFO">Typing text 'John wick' into text field 'css=#Form_getForm_FullName'.</msg>
-<arg>css=#Form_getForm_FullName</arg>
-<arg>John wick</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:58:20.202545" elapsed="0.175299"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:20.380233" level="INFO">Typing text 'john@gmail.com' into text field 'css=#Form_getForm_Email'.</msg>
-<arg>css=#Form_getForm_Email</arg>
-<arg>john@gmail.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:58:20.378987" elapsed="0.233193"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:20.614197" level="INFO">Selecting options from selection list 'css=#Form_getForm_Country' by label India.</msg>
-<arg>css=#Form_getForm_Country</arg>
-<arg>India</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-07-30T12:58:20.613217" elapsed="0.340085"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:20.955594" level="INFO">Typing text 'ABB' into text field 'css=input[name='CompanyName']'.</msg>
-<arg>css=input[name='CompanyName']</arg>
-<arg>ABB</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:58:20.954345" elapsed="0.140558"/>
+<status status="PASS" start="2026-07-30T15:16:40.523108" elapsed="1.230696"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-30T12:58:21.096932" level="INFO">Clicking element 'css=input[value='Get a Free Demo']'.</msg>
-<arg>css=input[value='Get a Free Demo']</arg>
+<msg time="2026-07-30T15:16:41.755060" level="INFO">Clicking element 'xpath=//span[text()='Multi-city']'.</msg>
+<arg>xpath=//span[text()='Multi-city']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-30T12:58:21.096107" elapsed="2.177224"/>
+<status status="PASS" start="2026-07-30T15:16:41.754476" elapsed="0.627725"/>
 </kw>
-<status status="PASS" start="2026-07-30T12:58:16.089200" elapsed="7.184832"/>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-07-30T15:16:42.398499" level="INFO">${dep_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.20")&gt;</msg>
+<var>${dep_element}</var>
+<arg>xpath=//div[@id='multi-city']//input[@aria-label="Depart"]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-07-30T15:16:42.382865" elapsed="0.016037"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-07-30T15:16:42.400706" level="INFO">Executing JavaScript:
+arguments[0].value="20 Aug 2026"
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.20")&gt;'</msg>
+<arg>arguments[0].value="20 Aug 2026"</arg>
+<arg>ARGUMENTS</arg>
+<arg>${dep_element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-07-30T15:16:42.399692" elapsed="0.007109"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-07-30T15:16:42.424171" level="INFO">${ret_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.24")&gt;</msg>
+<var>${ret_element}</var>
+<arg>xpath=(//div[@id='multi-city']//input[@aria-label="Depart"])[2]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-07-30T15:16:42.407305" elapsed="0.017315"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-07-30T15:16:42.426668" level="INFO">Executing JavaScript:
+arguments[0].value="20 Sep 2026"
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="4b438f6fcd7178baef01df7cc3d83214", element="f.2030FB272C91E706E35A43A1651B7BD3.d.19C3DD52577A0F6BB7C956537092D457.e.24")&gt;'</msg>
+<arg>arguments[0].value="20 Sep 2026"</arg>
+<arg>ARGUMENTS</arg>
+<arg>${ret_element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-07-30T15:16:42.425634" elapsed="0.010701"/>
+</kw>
+<status status="PASS" start="2026-07-30T15:16:38.456803" elapsed="3.980812"/>
 </test>
-<status status="PASS" start="2026-07-30T12:58:15.721407" elapsed="7.564541"/>
+<status status="PASS" start="2026-07-30T15:16:38.093284" elapsed="4.367256"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:58:15.716723" elapsed="7.584518"/>
+<status status="PASS" start="2026-07-30T15:16:38.086548" elapsed="4.389675"/>
 </suite>
-<status status="PASS" start="2026-07-30T12:58:15.668104" elapsed="7.649023"/>
+<status status="PASS" start="2026-07-30T15:16:38.021003" elapsed="4.472402"/>
 </suite>
 <statistics>
 <total>

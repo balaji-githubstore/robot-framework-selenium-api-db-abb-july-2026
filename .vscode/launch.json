@@ -1,0 +1,11 @@
+{
+    "configurations": [
+    {
+        "name": "RobotCode: Run Current",
+        "type": "robotcode",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "target": "${file}"
+    }
+    ]
+}

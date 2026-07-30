@@ -1,67 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-29T16:51:33.207958" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T10:20:20.423953" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo3 Selenium Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite">
-<suite id="s1-s1-s1" name="Demo1 Basics Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo1_basics_suite.robot">
-<test id="s1-s1-s1-t1" name="TC4" line="41">
+<suite id="s1-s1-s1" name="Demo2 Tabs Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo3_selenium_suite\demo2_tabs_suite.robot">
+<test id="s1-s1-s1-t1" name="TC1" line="5">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-07-29T16:51:33.743653" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<arg>browser=chrome</arg>
+<msg time="2026-07-30T10:20:20.902525" level="INFO">Opening browser 'edge' to base url 'None'.</msg>
+<arg>browser=edge</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-07-29T16:51:33.742833" elapsed="0.978901"/>
+<status status="PASS" start="2026-07-30T10:20:20.901986" elapsed="0.941114"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-07-29T16:51:34.722321" elapsed="0.033129"/>
+<status status="PASS" start="2026-07-30T10:20:21.843977" elapsed="0.032335"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>20s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-07-29T16:51:34.756136" elapsed="0.001847"/>
+<status status="PASS" start="2026-07-30T10:20:21.877029" elapsed="0.001661"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-07-29T16:51:34.758750" level="INFO">Opening url 'https://www.medibuddy.in/'</msg>
-<arg>url=https://www.medibuddy.in/</arg>
+<msg time="2026-07-30T10:20:21.879446" level="INFO">Opening url 'https://demo.openemr.io/b/openemr/'</msg>
+<arg>url=https://demo.openemr.io/b/openemr/</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-07-29T16:51:34.758407" elapsed="2.452261"/>
+<status status="PASS" start="2026-07-30T10:20:21.879111" elapsed="2.739674"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-07-29T16:51:37.213447" level="INFO">Clicking element 'link=Login'.</msg>
-<arg>link=Login</arg>
+<msg time="2026-07-30T10:20:24.622132" level="INFO">Clicking element 'partial link=Acknowledgments'.</msg>
+<arg>partial link=Acknowledgments</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-29T16:51:37.211791" elapsed="0.379395"/>
+<status status="PASS" start="2026-07-30T10:20:24.619989" elapsed="0.171208"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-07-29T16:51:42.592422" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-07-29T16:51:37.591686" elapsed="5.001385"/>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>Acknowledgments, Licensing and Certification</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2026-07-30T10:20:24.792019" elapsed="1.057567"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-07-29T16:51:42.594061" level="INFO">Typing text '89898989' into text field 'id=phone'.</msg>
-<arg>id=phone</arg>
-<arg>89898989</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-07-29T16:51:42.593510" elapsed="0.205824"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-07-30T10:20:25.851256" level="INFO">Clicking element 'link=OpenEMR Foundation'.</msg>
+<arg>link=OpenEMR Foundation</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-30T10:20:25.850357" elapsed="0.451122"/>
 </kw>
-<status status="PASS" start="2026-07-29T16:51:33.721076" elapsed="9.078812"/>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-07-30T10:20:26.303273" level="INFO">Verifying element 'xpath=//h1[contains(text(),'About the Open')]' contains exact text 'About the OpenEMR foundation'.</msg>
+<msg time="2026-07-30T10:20:26.452652" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-07-30T10:20:26.456071" level="FAIL">The text of element 'xpath=//h1[contains(text(),'About the Open')]' should have been 'About the OpenEMR foundation' but it was 'About the OpenEMR Foundation'.</msg>
+<arg>locator=xpath=//h1[contains(text(),'About the Open')]</arg>
+<arg>expected=About the OpenEMR foundation</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2026-07-30T10:20:26.302289" elapsed="0.174524">The text of element 'xpath=//h1[contains(text(),'About the Open')]' should have been 'About the OpenEMR foundation' but it was 'About the OpenEMR Foundation'.</status>
+</kw>
+<status status="FAIL" start="2026-07-30T10:20:20.881299" elapsed="5.596868">The text of element 'xpath=//h1[contains(text(),'About the Open')]' should have been 'About the OpenEMR foundation' but it was 'About the OpenEMR Foundation'.</status>
 </test>
-<status status="PASS" start="2026-07-29T16:51:33.276212" elapsed="9.535588"/>
+<status status="FAIL" start="2026-07-30T10:20:20.488350" elapsed="6.054306"/>
 </suite>
-<status status="PASS" start="2026-07-29T16:51:33.269771" elapsed="9.557795"/>
+<status status="FAIL" start="2026-07-30T10:20:20.482543" elapsed="6.092072"/>
 </suite>
-<status status="PASS" start="2026-07-29T16:51:33.212451" elapsed="9.624232"/>
+<status status="FAIL" start="2026-07-30T10:20:20.428348" elapsed="6.202438"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
-<stat name="Demo3 Selenium Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
-<stat name="Demo1 Basics Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo1 Basics Suite</stat>
+<stat name="AutomationProjectVS" id="s1" pass="0" fail="1" skip="0">AutomationProjectVS</stat>
+<stat name="Demo3 Selenium Suite" id="s1-s1" pass="0" fail="1" skip="0">AutomationProjectVS.Demo3 Selenium Suite</stat>
+<stat name="Demo2 Tabs Suite" id="s1-s1-s1" pass="0" fail="1" skip="0">AutomationProjectVS.Demo3 Selenium Suite.Demo2 Tabs Suite</stat>
 </suite>
 </statistics>
 <errors>

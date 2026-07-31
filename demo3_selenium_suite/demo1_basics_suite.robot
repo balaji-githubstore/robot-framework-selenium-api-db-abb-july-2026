@@ -3,6 +3,7 @@ Library   SeleniumLibrary
 
 *** Test Cases ***
 TC1 Launch Browser and Title
+    [Tags]    smoke
     Open Browser    browser=chrome    
     Go To    url=https://www.google.com/
     # get title and print 

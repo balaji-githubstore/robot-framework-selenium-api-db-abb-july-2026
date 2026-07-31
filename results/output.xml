@@ -1,302 +1,537 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-31T09:57:45.559191" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-31T11:09:32.516356" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo4 Api Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite">
-<suite id="s1-s1-s1" name="Demo2 Post Put Delete Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite\demo2_post_put_delete_suite.robot">
+<suite id="s1-s1-s1" name="Demo1 Get Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite\demo1_get_suite.robot">
 <kw name="Create Session" owner="RequestsLibrary" type="SETUP">
-<msg time="2026-07-31T09:57:45.930437" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-07-31T11:09:34.211776" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=petstore</arg>
 <arg>url=https://petstore.swagger.io/v2</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-07-31T09:57:45.929650" elapsed="0.001525"/>
+<status status="PASS" start="2026-07-31T11:09:32.776932" elapsed="1.435478"/>
 </kw>
-<test id="s1-s1-s1-t1" name="TC1 Add Valid Pet To Store" line="8">
-<kw name="Get File For Streaming Upload" owner="RequestsLibrary">
-<msg time="2026-07-31T09:57:47.744239" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\new_pet.json'&gt;</msg>
-<var>${req_json_body}</var>
-<arg>path=${EXECDIR}${/}test-data${/}new_pet.json</arg>
-<doc>Opens and returns a file descriptor of a specified file to be passed as ``data`` parameter
-to other requests keywords.</doc>
-<status status="PASS" start="2026-07-31T09:57:45.953085" elapsed="1.791462"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-07-31T09:57:48.601530" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive | api-key=special-key }</msg>
-<var>&amp;{headers}</var>
-<arg>content-type=application/json</arg>
-<arg>connection=keep-alive</arg>
-<arg>api-key=special-key</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-07-31T09:57:47.745538" elapsed="0.856391"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:57:50.113226" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
- path_url=/v2/pet 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'connection': 'keep-alive', 'content-type': 'application/json', 'api-key': 'special-key', 'Content-Length': '240'} 
- body=&lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\new_pet.json'&gt; 
- </msg>
-<msg time="2026-07-31T09:57:50.113932" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
- status=200, reason=OK 
- headers={'Date': 'Fri, 31 Jul 2026 04:27:50 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"available"} 
- </msg>
-<msg time="2026-07-31T09:57:50.116082" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2026-07-31T09:57:50.118007" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=petstore</arg>
-<arg>url=/pet</arg>
-<arg>headers=${headers}</arg>
-<arg>data=${req_json_body}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:57:48.602921" elapsed="1.515375"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-07-31T09:57:51.143555" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808', 'photoUrls': ['string'], 'tags': [{'id': 0, 'name': 'string'}], 'status': 'available'}</msg>
-<arg>${response.json()}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-07-31T09:57:50.119567" elapsed="1.024477"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2026-07-31T09:57:52.207721" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.json()}[id]</arg>
-<arg>1808</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:57:51.144982" elapsed="1.063144"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${response.json()}[name]</arg>
-<arg>doggie-1808</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:57:52.208870" elapsed="1.417846"/>
-</kw>
-<status status="PASS" start="2026-07-31T09:57:45.931583" elapsed="7.695971"/>
-</test>
-<test id="s1-s1-s1-t2" name="TC2 Update Valid Pet To Store" line="19">
-<kw name="Get File For Streaming Upload" owner="RequestsLibrary">
-<msg time="2026-07-31T09:57:57.592172" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt;</msg>
-<var>${req_json_body}</var>
-<arg>path=${EXECDIR}${/}test-data${/}update_pet.json</arg>
-<doc>Opens and returns a file descriptor of a specified file to be passed as ``data`` parameter
-to other requests keywords.</doc>
-<status status="PASS" start="2026-07-31T09:57:56.849145" elapsed="0.743618"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-07-31T09:57:58.170091" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive }</msg>
-<var>&amp;{headers}</var>
-<arg>content-type=application/json</arg>
-<arg>connection=keep-alive</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-07-31T09:57:57.593493" elapsed="0.577019"/>
-</kw>
-<kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:57:59.283445" level="INFO">PUT Request : url=https://petstore.swagger.io/v2/pet 
- path_url=/v2/pet 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '255'} 
- body=&lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt; 
- </msg>
-<msg time="2026-07-31T09:57:59.283882" level="INFO">PUT Response : url=https://petstore.swagger.io/v2/pet 
- status=200, reason=OK 
- headers={'Date': 'Fri, 31 Jul 2026 04:28:00 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808-update","photoUrls":["string"],"tags":[{"id":450,"name":"updated tags"}],"status":"available"} 
- </msg>
-<msg time="2026-07-31T09:57:59.284879" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2026-07-31T09:57:59.285908" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=petstore</arg>
-<arg>url=/pet</arg>
-<arg>headers=${headers}</arg>
-<arg>data=${req_json_body}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:57:58.171383" elapsed="1.114780"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-07-31T09:58:00.113051" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808-update', 'photoUrls': ['string'], 'tags': [{'id': 450, 'name': 'updated tags'}], 'status': 'available'}</msg>
-<arg>${response.json()}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-07-31T09:57:59.287210" elapsed="0.826363"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2026-07-31T09:58:00.736720" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.json()}[id]</arg>
-<arg>1808</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:58:00.114886" elapsed="0.622318"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${response.json()}[name]</arg>
-<arg>doggie-1808-update</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:58:00.738143" elapsed="1.351565"/>
-</kw>
-<status status="PASS" start="2026-07-31T09:57:53.645603" elapsed="8.444962"/>
-</test>
-<test id="s1-s1-s1-t3" name="TC3 Test Valid Pet Id From Store" line="29">
+<test id="s1-s1-s1-t1" name="TC6 Find Pet By Status Query Parameter" line="57">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:58:06.819105" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/1808 
- path_url=/v2/pet/1808 
+<msg time="2026-07-31T11:09:35.368532" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/findByStatus?status=pending 
+ path_url=/v2/pet/findByStatus?status=pending 
  headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2026-07-31T09:58:06.819645" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/1808 
+<msg time="2026-07-31T11:09:35.369334" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/findByStatus?status=pending 
  status=200, reason=OK 
- headers={'Date': 'Fri, 31 Jul 2026 04:28:07 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808-update","photoUrls":["string"],"tags":[{"id":450,"name":"updated tags"}],"status":"available"} 
+ headers={'Date': 'Fri, 31 Jul 2026 05:39:36 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body=[{"id":65532398,"category":{"id":43341866,"name":"consequat"},"name":"doggie","photoUrls":["cupidatat ex nisi irure","consectetur adipisicing labore ullamco sint"],"tags":[{"id":6881772,"name":"do"},{"id":-68693589,"name":"officia anim eu id"}],"status":"pending"},{"id":5858182,"category":{"id":28165363,"name":"eu temp"},"name":"doggie","photoUrls":["dolor pariatur et proident","magna in"],"tags":[{"id":-5545103,"name":"Excepteur tempor est esse do"},{"id":-16875270,"name":"dolore"}],"status":"pending"},{"id":555556,"category":{"id":4545565656565565,"name":"fich"},"name":"nemo","photoUrls":["http://faunazoo.ru/wp-content/uploads/2018/08/%D0%A0%D1%8B%D0%B1%D0%B0-%D0%A5%D0%B8%D1%80%D1%83%D1%80%D0%B3.jpg"],"tags":[{"id":454545454,"name":"kkklklj"},{"id":555,"name":"kkk"}],"status":"pending"},{"id":1721117,"category":{"id":-67196814,"name":"dolore"},"name":"doggie","photoUrls":["incididunt quis deserunt","est cillum quis"],"tags":[{"id":98465031,"name":"ea commodo"},{"id":-99302631,"name":"in"}],"status":"pending"},{"id":18150789,"category":{"id":-18439198,"name":"consequat Ut quis aute dolor"},"name":"doggie","photoUrls":["ut in","laborum cupidatat co"],"tags":[{"id":-25166077,"name":"tempor dolor"},{"id":-81550056,"name":"q"}],"status":"pending"},{"id":15519799,"category":{"id":-14197371,"name":"incididunt"},"name":"doggie","photoUrls":["sed occaecat nisi in","occaecat labore esse in et"],"tags":[{"id":87488020,"name":"irure nulla"},{"id":95089216,"name":"ex"}],"status":"pending"},{"id":89430752,"category":{"id":47464244,"name":"dolore sint "},"name":"doggie","photoUrls":["commodo et Duis","et ut"],"tags":[{"id":82816859,"name":"non veniam"},{"id":-68017647,"name":"non laborum esse qui"}],"status":"pending"},{"id":13131313,"category":{"id":66532288,"name":"male"},"name":"Luke","photoUrls":[],"tags":[{"id":26136232,"name":"white"},{"id":11286088,"name":"sterile"}],"status":"pending"},{"id":98416678,"category":{"id":21210924,"name":"laborum aute proident"},"name":"doggie","photoUrls":["mollit in sed cupidatat","nisi velit"],"tags":[{"id":-95022425,"name":"aliqua ea eu occaecat ut"},{"id":-10133551,"name":"commodo eu do"}],"status":"pending"},{"id":31227963,"category":{"id":32677841,"name":"fish"},"name":"Nemo","photoUrls":["some photo","https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg"],"tags":[{"id":23899291,"name":"something"},{"id":1234567890,"name":"new"}],"status":"pending"},{"id":1785445374,"category":{"id":1785445374,"name":"dog"},"name":"hello kity with form updated","photoUrls":["http://foo.bar.com/1","http://foo.bar.com/2"],"tags":[{"id":1785445374,"name":"swagger-codegen-python-pet-tag"}],"status":"pending"},{"id":34553147,"category":{"id":68135452,"name":"fugiat"},"name":"doggie","photoUrls":["sed enim nulla Lorem","nisi sed"],"tags":[{"id":-44253888,"name":"dolor Ut tempor mag"},{"id":-20916651,"name":"elit proident qui"}],"status":"pending"},{"id":53868678,"category":{"id":41814781,"name":"dolor "},"name":"doggie","photoUrls":["mollit culpa in rep","cupidatat"],"tags":[{"id":67974040,"name":"minim culpa nulla"},{"id":-74842126,"name":"mollit ipsum anim"}],"status":"pending"},{"id":70468829,"category":{"id":30918535,"name":"mollit cillum officia aute"},"name":"doggie","photoUrls":["aute ut ex incididunt cillum","veniam esse exercitation"],"tags":[{"id":3742233,"name":"et deserunt"},{"id":-22661485,"name":"laboris in veniam"}],"status":"pending"},{"id":8169848,"category":{"id":40819581,"name":"fishs"},"name":"namo fish","photoUrls":["sed eiusmod esse","https://blog.tetra.net/ru/ru/wp-content/uploads/2021/02/zolotaya-rybka-zvezdochet.jpg"],"tags":[{"id":3989180,"name":"sit dolore"},{"id":-52224736,"name":"Ut"}],"status":"pending"},{"id":111,"category":{"id":2,"name":"dogs"},"name":"Sharik","photoUrls":["stepik.org"],"tags":[{"id":1,"name":"cute"}],"status":"pending"},{"id":80512036,"category":{"id":-39944538,"name":"velit"},"name":"doggie","photoUrls":["eiusmod laboris adipisicing aliqua","laboris eu laborum"],"tags":[{"id":14214380,"name":"occaecat dolor reprehenderit"},{"id":-41890292,"name":"velit non laboris"}],"status":"pending"},{"id":31227963777,"category":{"id":32677841,"name":"fishs"},"name":"Nemo fish","photoUrls":["some photo","https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg"],"tags":[{"id":23899291,"name":"something"},{"id":1234567890,"name":"new"}],"status":"pending"},{"id":2022001,"category":{"id":0,"name":"fish"},"name":"Space","photoUrls":["string"],"tags":[{"id":0,"name":"shy"}],"status":"pending"},{"id":31227965,"category":{"id":32677841,"name":"fish"},"name":"NEMO1","photoUrls":["aute proident eiusmod sunt","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAACCCAMAAABmZkrtAAABWVBMVEX////+wQYREiQ/UbX/kAD5qCUaI35ca8CZmZ4AAAn+wwb/jgD/jAD+xQYAAAD+vwD+ogP+twX+vAX+rQT+nQP+sQT+qQT+lwIAABn5pRU5Trc0TLkLDSFVZb7+kwH6+v0mRr3v8PgAAG/V2O1KSlNkZG5bW2Rycnq+w+P+9ep8h8r7tBglPa9yZpz6rh6yuN5JW7vi5PIAC3ZseMMWN7P+yT0qKzg4OUQAABOCgogdHi2dqt+kpsXAsLHZuaTivZv1x4z705z83LX96M1TVaiOb4HDiVH5rjz6tlP7x36PmdLDjmNmYaK2hmyeeoD9wHB/bJTnnzr9ylr+6Lb94qbamUr91G6IjrrJyNbb1dhZX6vSlVH+3I3xuRfSqEfKolmvkGqRfoaDeZU0P5S8mF6hh3l0d6nQwrQqNHQQFTAZIEksMGGce0xkUmjisjkmJnPgu238sF/+ny5PUniRAAAN0klEQVR4nO2b+VfbVhbHkS1i8iRFi23ZSF6DFxYX2wFM7JBpFtKklG60TSkTs6VN084MM53//4e5b9XqrcdQ5hzuIZyHbPAn37u+J3th4c7u7M7u7M5uv5W7K6vtJ0/2nv7t02fPnj1//uLFy7W1vxpqYaHaXT1IddzW/qvPXi97Zi8vvn7z+fO/EnHlIOW2XLdy+MUi0IRt2QDCrwHw5sHKbWfbdZJJ9/CzdBRMAC4bxuvPb5hvNdUCMEB7tTiaTAC+fvPixvDKB9uELOl+mZ5ERvFs483zlzeCVnQJWdL5wp4Kjaq3+Ob5tatXTjE096vpVBNmLH/94nrZ1rlq38xGRtQzFp9do3grDC1Z+XZiGsTiLX59bZG3xT36amqPbm5ubJgWMXNjYzNt/HE9dNUWk63zw1RYAKVLEvKZJEmm+eY6Am+VsTmfTPbo5oZOWcIGF82j7+bO1uYu/XJC/dg0pVgubro+/H7OafGEsVV+GKsbVmwMGKWzduarXZv79PU4ySaDcbp5ZsXKNmXbH40GzpyKjNBJ388RjnZS52SUSzdmIMNw+tv5sf3ojtNtU5+JjNAdzS0ljqlwndh4s2Ymw3A782JbK7I8jRFtKnfqehRuXspRp8bUtylzwLKiuPOKuZ9asX1h2khDphl9ojWnbC2fkIjb//bPpSfKxrBJ+pzqHMvUvy8H0CaY8CTKZuPY5hRyxyzgfGxxUgTVMnkKa3Ycm6S/mx2kHL20Rtm+8pJhcunwPKkZaS3uGfrMwq0+ibl46JCRnLONyQKdU6O0x2bHs82aq9WtVMzVPSycc5ieiIYsU7ClOVsmnk2SZkyHJ8XOSvTqcYt01PTEgotMHlvI5kRazohnm1G4lU6qeBC9/FPSYxtb1pCZjnhSK2VG6GbNEnHl9WIqlepGrldPhE/HtymUtQWbMZFNn6UAtzFanHBbDm4MwLYZTyZqWZoToQwnQkpuFNssNS5FrFONPLCOT5BeLY9UTWSAnYmwSWppBNsszaHdIWzFaBk5cEntHYWmZ6NsOaYW0lV5VBjoR9OiQf1gFok40rV+GJkGFo8yZOT4qlSiK2SpSmRIkthWcWrhVjsMLRpxwOYcLoZV4y+JLCPKJstsYapK6Bc1bXh6djrUtKnLSDklrLgaegx8WvkyrJrudfMMJ8qU+DVFps8HNjXY4tDZh4qLz2bPh5o13aZwpeixbYW66rrjOMOwQ70oE2xSrkSBka7IlAhlVdU/GSDp0qVzjVM5OZemS9X1ok+4oFerJ27yNBJrFq+zKO1no0SWKlMilFZV3yCChoeVpLDKyek06VB95GMLebWbTJ5F64CXAXaOS1lSTO5JzmYH2Q7dpM/c5PkUXt17eG/fB9fx52p7OwZNskSUGSWWFpbiY8syNkX1hiR0UUkGrXI50avlw3v37r33waV8Pb/4cwwaMn0ZwNlUJcujTKEuR4aicoEl7Wc3GTa3E22SQeveI+bLB6/KtQNoonJkRb3IKFaYLe1jUzy2fSfClnSKMaNPwKWPKJzPr502wz4NqCb6U1bU+5xicU8q1H8aRBklAnCFlz/tl6hsGM4N16ygfWBs9977pFvH/6G1o2CU8cDWbIUrmVNFlKl0NNIMlRNhNvbEYZxsGM4ZC3fPMy/qip3Uwa9asONYYi6zVX6ppHr1gg4i2JOUTc8pCgtM7TyUCB8/fuR07dFo1Yc+OJ9jix+GATLcnziboersUknlOakqtNljT1IiKCsKKzHoJCDb+98ePHjwO/uhNVq54wCb59hIN0Amn8a0jMrrrMyqhAZqsUEE2GiqWLKs5Mh/Ap0Fos35/QE2rpwbt4miqRBkA7p9jNc5DxcPZJbEFCSiTBFRpijsYfAkGUQQZqMlBl0EM+E+YfsH/3F7b0Shi7DRuDsJeZSAcNwc9yRkJ3W0BmrJGo8ymYqqyjJtsiiUAI8DbJUL6Sh+YvrxUZQN7CJSc6GoMi/rJTUt6iz1pJZTZMpmlUAuBi7LpO2j03AmELb3DA1qqG69i5PuQyzbw3/GsUksykrck1BnaRBqJYURgSdlkirwfKDEztcuwsXtYyHxG0Nzf6FyD2Po4tkeRdmgcugiAwxeZ1ncoxImwhqZmM2i4IxN+iRc3LyfK7/wF7Kic8kIn/4rymZ4GcA9aSgyGSmRjtmI/0xwLnkigMMKB+bVfnKUud941SA6pu/Fs/37KsKW4RmQFWwZzIaImxkRPMiIBFuoggTtylepImztmDzFdeQyLJyWExnAKxjJAEt4khB5bAZmg8Acw1bxzRIx59THUTZSfztXodqrlXgPT/N6T9g8tTA6iTLyRCwqYZNQJN542B36KpUeHTWrkdpLO0Pxk1CF02TWJ6HV85oqKzTaSU4SImQztSg4KX/oKjxWctnOfNEWd2IYImPdtLi1/isK9nrew0kG0KaFXx37D6SEFVHLwGoZgo0EpnYZPyGdjPVoqIjwbtrZWqkuLLzcsYJsGcFGPanjKpEmbHhlcE8SIlQSbOgqXjZ/X4ztDF6iihGpyOeWtx4cshQ5w2dG5knclRThSYLusUmQujJPmshmgcjmRc2I3epKSLOU/5DwrXArrmo0AxA4i2Qi6UpELWQonI2oBURIkjEb21FfxWSD6/XFUcfTZC8T2Mz4hvjyf/jvk8pBM6DE2bKCjaiVkwQba17Q7NlwGTOTV8TG1xp5AIEnEd9mIbC/KKf4lgGDsKkCBg0yttEoy3hsGJ2olWMlD4ydVwxjhONoY07jug/929NiYEauFpNX7MTKxnWW/ClRt0iU4YjCbiYDEcKpS1eMzeLChSPO5dVdl8bsU8ecOXQ77v6VYKMdk2QAqVu48pOIwoUOlhZNXcyGSDnmzV6Kaaruz4ihjTvuWvWfOQSPLlccGGL4btOfnaRKkAyQiZsJBxBZKiMKs0UHJRpuujX+JG7Lky20sVhtQTpJvHL4shOPbTTKZBxlgsgUqzRdiSOnYdCprILoMa0qYG1RPtZDjxy4wMZ3mywDSHaSzUFGCagF6ORBurKpbvzIKSyc80GbBs07Uy2GDyhS4NNL+tdxVbN5dsqqRi+RsY2phYnSfKVRNlWwodNgBcFD5WQ0IVzkSLWMT6Iv+U6Y9Umbs+mUTXgSZCWpS1cG1U2ciEjSpb+OVM5gmyBNc3hJ2SLnOis+NllkAGGDcmGVlKAnbcEGq0yYTQtsaSpXSJ/uQHrEvY8nHpsVyADiSVr5wWs87g2uFgjM2GTD0w0d+oRzhtPeAClvhTsCvYrvfLBcALn8bKbIAFujbiayMk9mNFqOZSXjYzv3ssE5nPLAd2HEvbYq/lucDfYLdOOS455kUWZoZPymsmY4m1SKsEm+Ucm9nOFe4EHMPUrybilWe4lyeOPCMiDNowxeXWNEOcSjDEoMdSk/raH/PTFjTjp4C2mUKkauYZcm3XNRoTKKLjLAFlGW8YiQxDwJe3xV9g9J1KlnlT+DFndPvBvoe6Rv4SgrsbjnUQZqUSJwuU49CSXGYmyyj00a0rMuNxW9qTdBuQgt8YDjbTjAoXy+gLFNRBkLQTwQ6SU5yCYHb2nh3uBst2PetjCjrYfZCJ8ZijK5pFtMLcWiZQXY2NPYbl8EHDi1tT6raDFWZrERZNN4BtCNFDbLYmoppsUuqXo2jk2Chj9bpI2w6nYcGzJzKvWkxuPe5GopWaGWmRYr36/r0t4cRAP7ibJ5ecqDLqPCKAfjI/ekaXJPxrF5t410fcQZ4Oz2K2O7CB/8wk6Z7B08Iu7JtPBk1hbX+Imiheb3XtWX27y7hA3pIJ2le55kHIot1EobnI0eI+r6XN9Fu8beQ+tGjn6xdKqIMlBLsNm8cgg2vLPQMdl8333MxoZK5Mgcp6ulZ4UygsgWRHaGP2ogS3o793e877G7xIcoygbS6YaskqHcEGxGRgmuFFXNzFsyYsf8DeVxNyqBTrPskqooiiHUygi2DBQYAFP/eHFNH2Fgn/tw9uOEI9oh08ipuQzXLcfLsVICTf/7+TV+qKfrON6+YwSepptZcC4YKCiTBSxzhr0x7/feh2ylNSYdPPU0DZnZtG0btm2nsyZs73feXf/noFaZck7cbfuQezEjUOq6dHQzn2/rFlusc02AwwZ1zBq+u460jLdyu+iS8fdyOJ4OwIY34cqAVdup7ZbjuPvn4LERVLql79ygYH7rtg9STmu7dXE6lDTkZwKTdo7efX/DegWt2l1tr6eKh5fnp8OhZZE7fTtHb999dys+u0utWu12u9W12wN0Z3d2Z3f2f2VLt9cW7t9eW0jcXiNsBf4TWxTAxIX8zUMxw2yFHvlKFPI9DJUf1HZ7vUIer3bzidrgL2WrNe7Xa7v52u5SolYr7Pb7/ebS42bvQb2+1KvVe4WJf2UGy+exX+iiQFbs63E+X8gTg4cKnC3xuJ/o15uNxqDfqDWa9frTZnNpCb6WGk+f9uYr26BWSyR6vcRgUK8NeoXebqEArzAY5GvNWn233qg3avVEvbFbEGyNZrPZAKH69d380u6D3tJS/emgfzzYPX56f65oiXy/2W/il+vDK/Yb9aUaqNFc6jcafZCn38A+ay41+3nOBm4cAGuzBtDN2i4ototlq4F+zfp8cyHfwAI16nVAqvVrTawT+TaoY7R6r1lv9poQWZwN4yUGhcEgAf/gag+yIN/L57E7550JpAaQQOPfeFmAcCNL+gQfW/D32be5JsHsdutr7y21/wHp8ePDcJSJUQAAAABJRU5ErkJggg=="],"tags":[{"id":23899291,"name":"12"},{"id":23... (set the log level to DEBUG or TRACE to see the full content) 
  </msg>
-<msg time="2026-07-31T09:58:06.820378" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2026-07-31T11:09:35.369885" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2026-07-31T09:58:06.821619" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-07-31T11:09:35.370618" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=petstore</arg>
-<arg>url=/pet/1808</arg>
+<arg>url=/pet/findByStatus?status=pending</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:58:04.168344" elapsed="2.653571"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2026-07-31T09:58:07.447181" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.json()}[id]</arg>
-<arg>1808</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:58:06.823336" elapsed="0.624203"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${response.json()}[name]</arg>
-<arg>doggie-1808-update</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:58:07.448321" elapsed="0.928321"/>
-</kw>
-<status status="PASS" start="2026-07-31T09:58:02.108633" elapsed="6.268778"/>
-</test>
-<test id="s1-s1-s1-t4" name="TC4 Delete Valid Pet From Store" line="34">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-07-31T09:58:12.544751" level="INFO">&amp;{headers} = { api_key=special-key }</msg>
-<var>&amp;{headers}</var>
-<arg>api_key=special-key</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-07-31T09:58:11.568220" elapsed="0.977177"/>
-</kw>
-<kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:58:15.619365" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/1808 
- path_url=/v2/pet/1808 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'api_key': 'special-key', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2026-07-31T09:58:15.620463" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/1808 
- status=200, reason=OK 
- headers={'Date': 'Fri, 31 Jul 2026 04:28:16 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"code":200,"type":"unknown","message":"1808"} 
- </msg>
-<msg time="2026-07-31T09:58:15.621316" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2026-07-31T09:58:15.622363" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=petstore</arg>
-<arg>url=/pet/1808</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:58:12.546546" elapsed="3.076252"/>
+<status status="PASS" start="2026-07-31T11:09:34.224829" elapsed="1.146464"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-07-31T09:58:16.457016" level="INFO">{'code': 200, 'type': 'unknown', 'message': '1808'}</msg>
+<msg time="2026-07-31T11:09:35.373980" level="INFO">[{'id': 65532398, 'category': {'id': 43341866, 'name': 'consequat'}, 'name': 'doggie', 'photoUrls': ['cupidatat ex nisi irure', 'consectetur adipisicing labore ullamco sint'], 'tags': [{'id': 6881772, 'name': 'do'}, {'id': -68693589, 'name': 'officia anim eu id'}], 'status': 'pending'}, {'id': 5858182, 'category': {'id': 28165363, 'name': 'eu temp'}, 'name': 'doggie', 'photoUrls': ['dolor pariatur et proident', 'magna in'], 'tags': [{'id': -5545103, 'name': 'Excepteur tempor est esse do'}, {'id': -16875270, 'name': 'dolore'}], 'status': 'pending'}, {'id': 555556, 'category': {'id': 4545565656565565, 'name': 'fich'}, 'name': 'nemo', 'photoUrls': ['http://faunazoo.ru/wp-content/uploads/2018/08/%D0%A0%D1%8B%D0%B1%D0%B0-%D0%A5%D0%B8%D1%80%D1%83%D1%80%D0%B3.jpg'], 'tags': [{'id': 454545454, 'name': 'kkklklj'}, {'id': 555, 'name': 'kkk'}], 'status': 'pending'}, {'id': 1721117, 'category': {'id': -67196814, 'name': 'dolore'}, 'name': 'doggie', 'photoUrls': ['incididunt quis deserunt', 'est cillum quis'], 'tags': [{'id': 98465031, 'name': 'ea commodo'}, {'id': -99302631, 'name': 'in'}], 'status': 'pending'}, {'id': 18150789, 'category': {'id': -18439198, 'name': 'consequat Ut quis aute dolor'}, 'name': 'doggie', 'photoUrls': ['ut in', 'laborum cupidatat co'], 'tags': [{'id': -25166077, 'name': 'tempor dolor'}, {'id': -81550056, 'name': 'q'}], 'status': 'pending'}, {'id': 15519799, 'category': {'id': -14197371, 'name': 'incididunt'}, 'name': 'doggie', 'photoUrls': ['sed occaecat nisi in', 'occaecat labore esse in et'], 'tags': [{'id': 87488020, 'name': 'irure nulla'}, {'id': 95089216, 'name': 'ex'}], 'status': 'pending'}, {'id': 89430752, 'category': {'id': 47464244, 'name': 'dolore sint '}, 'name': 'doggie', 'photoUrls': ['commodo et Duis', 'et ut'], 'tags': [{'id': 82816859, 'name': 'non veniam'}, {'id': -68017647, 'name': 'non laborum esse qui'}], 'status': 'pending'}, {'id': 13131313, 'category': {'id': 66532288, 'name': 'male'}, 'name': 'Luke', 'photoUrls': [], 'tags': [{'id': 26136232, 'name': 'white'}, {'id': 11286088, 'name': 'sterile'}], 'status': 'pending'}, {'id': 98416678, 'category': {'id': 21210924, 'name': 'laborum aute proident'}, 'name': 'doggie', 'photoUrls': ['mollit in sed cupidatat', 'nisi velit'], 'tags': [{'id': -95022425, 'name': 'aliqua ea eu occaecat ut'}, {'id': -10133551, 'name': 'commodo eu do'}], 'status': 'pending'}, {'id': 31227963, 'category': {'id': 32677841, 'name': 'fish'}, 'name': 'Nemo', 'photoUrls': ['some photo', 'https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg'], 'tags': [{'id': 23899291, 'name': 'something'}, {'id': 1234567890, 'name': 'new'}], 'status': 'pending'}, {'id': 1785445374, 'category': {'id': 1785445374, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785445374, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 34553147, 'category': {'id': 68135452, 'name': 'fugiat'}, 'name': 'doggie', 'photoUrls': ['sed enim nulla Lorem', 'nisi sed'], 'tags': [{'id': -44253888, 'name': 'dolor Ut tempor mag'}, {'id': -20916651, 'name': 'elit proident qui'}], 'status': 'pending'}, {'id': 53868678, 'category': {'id': 41814781, 'name': 'dolor '}, 'name': 'doggie', 'photoUrls': ['mollit culpa in rep', 'cupidatat'], 'tags': [{'id': 67974040, 'name': 'minim culpa nulla'}, {'id': -74842126, 'name': 'mollit ipsum anim'}], 'status': 'pending'}, {'id': 70468829, 'category': {'id': 30918535, 'name': 'mollit cillum officia aute'}, 'name': 'doggie', 'photoUrls': ['aute ut ex incididunt cillum', 'veniam esse exercitation'], 'tags': [{'id': 3742233, 'name': 'et deserunt'}, {'id': -22661485, 'name': 'laboris in veniam'}], 'status': 'pending'}, {'id': 8169848, 'category': {'id': 40819581, 'name': 'fishs'}, 'name': 'namo fish', 'photoUrls': ['sed eiusmod esse', 'https://blog.tetra.net/ru/ru/wp-content/uploads/2021/02/zolotaya-rybka-zvezdochet.jpg'], 'tags': [{'id': 3989180, 'name': 'sit dolore'}, {'id': -52224736, 'name': 'Ut'}], 'status': 'pending'}, {'id': 111, 'category': {'id': 2, 'name': 'dogs'}, 'name': 'Sharik', 'photoUrls': ['stepik.org'], 'tags': [{'id': 1, 'name': 'cute'}], 'status': 'pending'}, {'id': 80512036, 'category': {'id': -39944538, 'name': 'velit'}, 'name': 'doggie', 'photoUrls': ['eiusmod laboris adipisicing aliqua', 'laboris eu laborum'], 'tags': [{'id': 14214380, 'name': 'occaecat dolor reprehenderit'}, {'id': -41890292, 'name': 'velit non laboris'}], 'status': 'pending'}, {'id': 31227963777, 'category': {'id': 32677841, 'name': 'fishs'}, 'name': 'Nemo fish', 'photoUrls': ['some photo', 'https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg'], 'tags': [{'id': 23899291, 'name': 'something'}, {'id': 1234567890, 'name': 'new'}], 'status': 'pending'}, {'id': 2022001, 'category': {'id': 0, 'name': 'fish'}, 'name': 'Space', 'photoUrls': ['string'], 'tags': [{'id': 0, 'name': 'shy'}], 'status': 'pending'}, {'id': 31227965, 'category': {'id': 32677841, 'name': 'fish'}, 'name': 'NEMO1', 'photoUrls': ['aute proident eiusmod sunt', 'data:image/png;base64,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'], 'tags': [{'id': 23899291, 'name': '12'}, {'id': 23899291, 'name': 'fish1'}], 'status': 'pending'}, {'id': 1785447996, 'category': {'id': 1785447996, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785447996, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 1785448872, 'category': {'id': 1785448872, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785448872, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 731111, 'category': {'id': 5992, 'name': 'fishs'}, 'name': 'Nemotest', 'photoUrls': ['string', 'https://www.google.com/imgres?q=fish&amp;imgurl=https%3A%2F%2Fcdn.britannica.com%2F14%2F162014-050-45C1FD13%2Fwarm-bloodedness-opah-results-heat-exchange-system-gills.jpg&amp;imgrefurl=https%3A%2F%2Fwww.britannica.com%2Fanimal%2Ffish&amp;docid=YPTjX0r3OE7wEM&amp;tbnid=QTSm8cHUqoGNkM&amp;vet=12ahUKEwioi_-smeOQAxXiywIHHQj8GF8QM3oECBYQAA..i&amp;w=1600&amp;h=1256&amp;hcb=2&amp;ved=2ahUKEwioi_-smeOQAxXiywIHHQj8GF8QM3oECBYQAA'], 'tags': [{'id': 3432, 'name': 'string'}, {'id': 5215, 'name': 'string'}], 'status': 'pending'}, {'id': 2799412, 'category': {'id': 19475553, 'name': 'nostrud cupidatat labore'}, 'name': 'doggie', 'photoUrls': ['culpa occaecat', 'ad incididunt'], 'tags': [{'id': 47291519, 'name': 'consequat aute pariatur'}, {'id': -53726990, 'name': 'Lorem enim consectetur'}], 'status': 'pending'}, {'id': 1785449089, 'category': {'id': 1785449089, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785449089, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 900000001, 'category': {'id': 1010, 'name': 'test-category'}, 'name': 'Frodo', 'photoUrls': ['url_1'], 'tags': [{'id': 101010, 'name': 'test-tag-name'}], 'status': 'pending'}, {'id': 900000002, 'category': {'id': 1010, 'name': 'test-category'}, 'photoUrls': ['url_2'], 'tags': [{'id': 101010, 'name': 'test-tag-name'}], 'status': 'pending'}, {'id': 1785451748, 'category': {'id': 1785451748, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785451748, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 16222945, 'category': {'id': -78746072, 'name': 'eiusmod'}, 'name': 'doggie', 'photoUrls': ['pariatur culpa do ex', 'cupidatat reprehenderit'], 'tags': [{'id': -20700751, 'name': 'fugiat sint Excepteur'}, {'id': -66098870, 'name': 'consectetur amet fugiat'}], 'status': 'pending'}, {'id': 2609, 'name': 'Json Whiskers', 'photoUrls': ['http://cutecats.com/1.jpg', 'http://cutecats.com/2.jpg', 'http://cutecats.com/3.jpg'], 'tags': [], 'status': 'pending'}, {'id': 1785459188, 'category': {'id': 1785459188, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785459188, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 517, 'category': {'id': 1204, 'name': 'string'}, 'name': 'doggie', 'photoUrls': ['string', 'string'], 'tags': [{'id': 5115, 'name': 'string'}, {'id': 5749, 'name': 'string'}], 'status': 'pending'}, {'id': 1785462326, 'category': {'id': 1785462326, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785462326, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 235, 'category': {'id': 0, 'name': 'Aldo'}, 'name': 'Dog', 'photoUrls': ['www.ornekolacakyadim1.com', 'www.ornekolacakyadim2.com'], 'tags': [{'id': 0, 'name': 'Seven'}, {'id': 0, 'name': 'Eight'}], 'status': 'pending'}, {'id': 1785468734, 'category': {'id': 1785468734, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785468734, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 1785469974, 'category': {'id': 1785469974, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785469974, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 1785469975, 'category': {'id': 1785469975, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785469975, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 1785470050, 'category': {'id': 1785470050, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785470050, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 1785470132, 'category': {'id': 1785470132, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785470132, 'name': 'swagger-codegen-python-pet-tag'}], 'status': 'pending'}, {'id': 817, 'category': {'id': 434, 'name': 'dolphin'}, 'photoUrls': [], 'tags': [{'id': 10, 'name': 'settler'}], 'status': 'pending'}, {'id': 296748499, 'category': {'id': 0, 'name': 'squirrel'}, 'name': 'UpdatedPetName', 'photoUrls': ['https://picsum.photos/seed/XexUk4uv/3143/1750', 'https://loremflickr.com/1264/3552?lock=232296563449769'], 'tags': [{'id': 0, 'name': 'appropriate'}, {'id': 0, 'name': 'creamy'}], 'status': 'pending'}, {'id': 766166325, 'category': {'id': 0, 'name': 'elephant'}, 'name': 'Daisy', 'photoUrls': ['https://picsum.photos/seed/HD8EgF3/2994/199', 'https://picsum.photos/seed/xvTU7FeUW/25/3242'], 'tags': [{'id': 0, 'name': 'lined'}, {'id': 0, 'name': 'crushing'}], 'status': 'pending'}, {'id': 16070974, 'category': {'id': 58104089, 'name': 'do fugiat laborum ut'}, 'name': 'dog', 'photoUrls': ['Ut nisi Excepteur do', 'enim ullamco adipisicing sunt'], 'tags': [{'id': 95465410, 'name': 'non laborum cupidatat officia'}, {'id': 23512356, 'name': 'esse amet Duis'}], 'status': 'pending'}, {'id': 32588349, 'category': {'id': 46161566, 'name': 'aliquip in dol'}, 'name': 'doggie', 'photoUrls': ['Excepteur nulla voluptate labore esse', 'elit non'], 'tags': [{'id': -18619507, 'name': 'laboris culpa'}, {'id': 38532824, 'name': 'cillum'}], 'status': 'pending'}, {'id': 82321725, 'category': {'id': -45407209, 'name': 'enim occaecat eiusmod ipsum culpa'}, 'name': 'doggie', 'photoUrls': ['anim sed', 'tempor consectetur'], 'tags': [{'id': -59691479, 'name': 'veniam labore in'}, {'id': -34543200, 'name': 'id occaecat'}], 'status': 'pending'}, {'id': 267861, 'category': {'id': 1, 'name': 'Dogs'}, 'name': 'UpdatedWorkflowDog-267861', 'photoUrls': ['https://example.com/photo1.jpg'], 'tags': [{'id': 1, 'name': 'test-tag'}], 'status': 'pending'}]</msg>
 <arg>${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-07-31T09:58:15.624178" elapsed="0.833431"/>
+<status status="PASS" start="2026-07-31T11:09:35.372043" elapsed="0.002866"/>
 </kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-07-31T11:09:35.377133" level="INFO">{'id': 65532398, 'category': {'id': 43341866, 'name': 'consequat'}, 'name': 'doggie', 'photoUrls': ['cupidatat ex nisi irure', 'consectetur adipisicing labore ullamco sint'], 'tags': [{'id': 6881772, 'name': 'do'}, {'id': -68693589, 'name': 'officia anim eu id'}], 'status': 'pending'}</msg>
+<arg>${response.json()}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-07-31T11:09:35.375970" elapsed="0.001655"/>
+</kw>
+<for flavor="IN">
+<iter>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${response.json()}[message]</arg>
-<arg>1808</arg>
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2026-07-31T09:58:16.458590" elapsed="0.917717"/>
+<status status="PASS" start="2026-07-31T11:09:35.379444" elapsed="6.319194"/>
 </kw>
-<status status="PASS" start="2026-07-31T09:58:08.393156" elapsed="8.983897"/>
-</test>
-<test id="s1-s1-s1-t5" name="TC5 Test Valid Pet Id From Store" line="41">
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:58:23.450241" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/1808 
- path_url=/v2/pet/1808 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2026-07-31T09:58:23.451424" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/1808 
- status=404, reason=Not Found 
- headers={'Date': 'Fri, 31 Jul 2026 04:28:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"code":1,"type":"error","message":"Pet not found"} 
- </msg>
-<msg time="2026-07-31T09:58:23.452063" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2026-07-31T09:58:23.453307" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<var>${response}</var>
-<arg>alias=petstore</arg>
-<arg>url=/pet/1808</arg>
-<arg>expected_status=404</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:58:21.104301" elapsed="2.349655"/>
+<var name="${pet}">{'id': 65532398, 'category': {'id': 43341866, 'name': 'consequat'}, 'name': 'doggie', 'photoUrls': ['cupidatat ex nisi irure', 'consectetur adipisicing labore ullamco sint'], 'tags': [{'id': 6881772, ...</var>
+<status status="PASS" start="2026-07-31T11:09:35.379093" elapsed="6.319969"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:42.489678" elapsed="0.576717"/>
 </kw>
-<status status="PASS" start="2026-07-31T09:58:17.395968" elapsed="6.058773"/>
-</test>
-<test id="s1-s1-s1-t6" name="TC6 Delete Invalid Pet From Store" line="44">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-07-31T09:58:25.615043" level="INFO">&amp;{headers} = { api_key=special-key }</msg>
-<var>&amp;{headers}</var>
-<arg>api_key=special-key</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-07-31T09:58:24.502836" elapsed="1.112480"/>
+<var name="${pet}">{'id': 5858182, 'category': {'id': 28165363, 'name': 'eu temp'}, 'name': 'doggie', 'photoUrls': ['dolor pariatur et proident', 'magna in'], 'tags': [{'id': -5545103, 'name': 'Excepteur tempor est esse...</var>
+<status status="PASS" start="2026-07-31T11:09:41.699831" elapsed="1.366856"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:43.522439" elapsed="0.455483"/>
 </kw>
-<kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2026-07-31T09:58:27.575713" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/1808 
- path_url=/v2/pet/1808 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'api_key': 'special-key', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2026-07-31T09:58:27.575961" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/1808 
- status=404, reason=Not Found 
- headers={'Date': 'Fri, 31 Jul 2026 04:28:28 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body=None 
- </msg>
-<msg time="2026-07-31T09:58:27.576384" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2026-07-31T09:58:27.576989" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<var>${response}</var>
-<arg>alias=petstore</arg>
-<arg>url=/pet/1808</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=404</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-31T09:58:25.615975" elapsed="1.961229"/>
+<var name="${pet}">{'id': 555556, 'category': {'id': 4545565656565565, 'name': 'fich'}, 'name': 'nemo', 'photoUrls': ['http://faunazoo.ru/wp-content/uploads/2018/08/%D0%A0%D1%8B%D0%B1%D0%B0-%D0%A5%D0%B8%D1%80%D1%83%D1%8...</var>
+<status status="PASS" start="2026-07-31T11:09:43.067047" elapsed="0.911209"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:50.409917" elapsed="1.060784"/>
 </kw>
-<status status="PASS" start="2026-07-31T09:58:23.464253" elapsed="4.113505"/>
+<var name="${pet}">{'id': 1721117, 'category': {'id': -67196814, 'name': 'dolore'}, 'name': 'doggie', 'photoUrls': ['incididunt quis deserunt', 'est cillum quis'], 'tags': [{'id': 98465031, 'name': 'ea commodo'}, {'id':...</var>
+<status status="PASS" start="2026-07-31T11:09:43.978603" elapsed="7.492389"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:51.471803" elapsed="0.725592"/>
+</kw>
+<var name="${pet}">{'id': 18150789, 'category': {'id': -18439198, 'name': 'consequat Ut quis aute dolor'}, 'name': 'doggie', 'photoUrls': ['ut in', 'laborum cupidatat co'], 'tags': [{'id': -25166077, 'name': 'tempor dol...</var>
+<status status="PASS" start="2026-07-31T11:09:51.471292" elapsed="0.726391"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:52.198695" elapsed="2.720110"/>
+</kw>
+<var name="${pet}">{'id': 15519799, 'category': {'id': -14197371, 'name': 'incididunt'}, 'name': 'doggie', 'photoUrls': ['sed occaecat nisi in', 'occaecat labore esse in et'], 'tags': [{'id': 87488020, 'name': 'irure nu...</var>
+<status status="PASS" start="2026-07-31T11:09:52.197969" elapsed="2.721201"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.920184" elapsed="0.000945"/>
+</kw>
+<var name="${pet}">{'id': 89430752, 'category': {'id': 47464244, 'name': 'dolore sint '}, 'name': 'doggie', 'photoUrls': ['commodo et Duis', 'et ut'], 'tags': [{'id': 82816859, 'name': 'non veniam'}, {'id': -68017647, '...</var>
+<status status="PASS" start="2026-07-31T11:09:54.919495" elapsed="0.001835"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.922399" elapsed="0.001070"/>
+</kw>
+<var name="${pet}">{'id': 13131313, 'category': {'id': 66532288, 'name': 'male'}, 'name': 'Luke', 'photoUrls': [], 'tags': [{'id': 26136232, 'name': 'white'}, {'id': 11286088, 'name': 'sterile'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.921603" elapsed="0.002084"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.924371" elapsed="0.000822"/>
+</kw>
+<var name="${pet}">{'id': 98416678, 'category': {'id': 21210924, 'name': 'laborum aute proident'}, 'name': 'doggie', 'photoUrls': ['mollit in sed cupidatat', 'nisi velit'], 'tags': [{'id': -95022425, 'name': 'aliqua ea ...</var>
+<status status="PASS" start="2026-07-31T11:09:54.923992" elapsed="0.001394"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.925963" elapsed="0.000717"/>
+</kw>
+<var name="${pet}">{'id': 31227963, 'category': {'id': 32677841, 'name': 'fish'}, 'name': 'Nemo', 'photoUrls': ['some photo', 'https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg'], 'tags': [{'id': 23899...</var>
+<status status="PASS" start="2026-07-31T11:09:54.925637" elapsed="0.001205"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.927362" elapsed="0.000702"/>
+</kw>
+<var name="${pet}">{'id': 1785445374, 'category': {'id': 1785445374, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785445374, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.927064" elapsed="0.001163"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.928725" elapsed="0.000633"/>
+</kw>
+<var name="${pet}">{'id': 34553147, 'category': {'id': 68135452, 'name': 'fugiat'}, 'name': 'doggie', 'photoUrls': ['sed enim nulla Lorem', 'nisi sed'], 'tags': [{'id': -44253888, 'name': 'dolor Ut tempor mag'}, {'id': ...</var>
+<status status="PASS" start="2026-07-31T11:09:54.928439" elapsed="0.001072"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.930035" elapsed="0.000647"/>
+</kw>
+<var name="${pet}">{'id': 53868678, 'category': {'id': 41814781, 'name': 'dolor '}, 'name': 'doggie', 'photoUrls': ['mollit culpa in rep', 'cupidatat'], 'tags': [{'id': 67974040, 'name': 'minim culpa nulla'}, {'id': -74...</var>
+<status status="PASS" start="2026-07-31T11:09:54.929728" elapsed="0.001093"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.931326" elapsed="0.000623"/>
+</kw>
+<var name="${pet}">{'id': 70468829, 'category': {'id': 30918535, 'name': 'mollit cillum officia aute'}, 'name': 'doggie', 'photoUrls': ['aute ut ex incididunt cillum', 'veniam esse exercitation'], 'tags': [{'id': 374223...</var>
+<status status="PASS" start="2026-07-31T11:09:54.931061" elapsed="0.001041"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.932709" elapsed="0.000877"/>
+</kw>
+<var name="${pet}">{'id': 8169848, 'category': {'id': 40819581, 'name': 'fishs'}, 'name': 'namo fish', 'photoUrls': ['sed eiusmod esse', 'https://blog.tetra.net/ru/ru/wp-content/uploads/2021/02/zolotaya-rybka-zvezdochet...</var>
+<status status="PASS" start="2026-07-31T11:09:54.932342" elapsed="0.001446"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.934568" elapsed="0.001033"/>
+</kw>
+<var name="${pet}">{'id': 111, 'category': {'id': 2, 'name': 'dogs'}, 'name': 'Sharik', 'photoUrls': ['stepik.org'], 'tags': [{'id': 1, 'name': 'cute'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.934126" elapsed="0.001747"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.936554" elapsed="0.000802"/>
+</kw>
+<var name="${pet}">{'id': 80512036, 'category': {'id': -39944538, 'name': 'velit'}, 'name': 'doggie', 'photoUrls': ['eiusmod laboris adipisicing aliqua', 'laboris eu laborum'], 'tags': [{'id': 14214380, 'name': 'occaeca...</var>
+<status status="PASS" start="2026-07-31T11:09:54.936173" elapsed="0.001365"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.938125" elapsed="0.000732"/>
+</kw>
+<var name="${pet}">{'id': 31227963777, 'category': {'id': 32677841, 'name': 'fishs'}, 'name': 'Nemo fish', 'photoUrls': ['some photo', 'https://w.forfun.com/fetch/86/8638a61a7d65fb5c448daf8d36082d5d.jpeg'], 'tags': [{'i...</var>
+<status status="PASS" start="2026-07-31T11:09:54.937781" elapsed="0.001240"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.939555" elapsed="0.000648"/>
+</kw>
+<var name="${pet}">{'id': 2022001, 'category': {'id': 0, 'name': 'fish'}, 'name': 'Space', 'photoUrls': ['string'], 'tags': [{'id': 0, 'name': 'shy'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.939264" elapsed="0.001079"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.940834" elapsed="0.000548"/>
+</kw>
+<var name="${pet}">{'id': 31227965, 'category': {'id': 32677841, 'name': 'fish'}, 'name': 'NEMO1', 'photoUrls': ['aute proident eiusmod sunt', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAACCCAMAAABmZkrtAAABWVBMV...</var>
+<status status="PASS" start="2026-07-31T11:09:54.940561" elapsed="0.000942"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.941901" elapsed="0.000505"/>
+</kw>
+<var name="${pet}">{'id': 1785447996, 'category': {'id': 1785447996, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785447996, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.941670" elapsed="0.000849"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.942903" elapsed="0.000546"/>
+</kw>
+<var name="${pet}">{'id': 1785448872, 'category': {'id': 1785448872, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785448872, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.942679" elapsed="0.000891"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.943956" elapsed="0.000476"/>
+</kw>
+<var name="${pet}">{'id': 731111, 'category': {'id': 5992, 'name': 'fishs'}, 'name': 'Nemotest', 'photoUrls': ['string', 'https://www.google.com/imgres?q=fish&amp;imgurl=https%3A%2F%2Fcdn.britannica.com%2F14%2F162014-050-45...</var>
+<status status="PASS" start="2026-07-31T11:09:54.943742" elapsed="0.000801"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.944905" elapsed="0.000494"/>
+</kw>
+<var name="${pet}">{'id': 2799412, 'category': {'id': 19475553, 'name': 'nostrud cupidatat labore'}, 'name': 'doggie', 'photoUrls': ['culpa occaecat', 'ad incididunt'], 'tags': [{'id': 47291519, 'name': 'consequat aute ...</var>
+<status status="PASS" start="2026-07-31T11:09:54.944699" elapsed="0.000819"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.945909" elapsed="0.000463"/>
+</kw>
+<var name="${pet}">{'id': 1785449089, 'category': {'id': 1785449089, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785449089, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.945684" elapsed="0.000799"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.946888" elapsed="0.000504"/>
+</kw>
+<var name="${pet}">{'id': 900000001, 'category': {'id': 1010, 'name': 'test-category'}, 'name': 'Frodo', 'photoUrls': ['url_1'], 'tags': [{'id': 101010, 'name': 'test-tag-name'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.946652" elapsed="0.000865"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.947897" elapsed="0.000759"/>
+</kw>
+<var name="${pet}">{'id': 900000002, 'category': {'id': 1010, 'name': 'test-category'}, 'photoUrls': ['url_2'], 'tags': [{'id': 101010, 'name': 'test-tag-name'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.947673" elapsed="0.001185"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.949488" elapsed="0.000668"/>
+</kw>
+<var name="${pet}">{'id': 1785451748, 'category': {'id': 1785451748, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785451748, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.949125" elapsed="0.001318"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.950961" elapsed="0.000617"/>
+</kw>
+<var name="${pet}">{'id': 16222945, 'category': {'id': -78746072, 'name': 'eiusmod'}, 'name': 'doggie', 'photoUrls': ['pariatur culpa do ex', 'cupidatat reprehenderit'], 'tags': [{'id': -20700751, 'name': 'fugiat sint E...</var>
+<status status="PASS" start="2026-07-31T11:09:54.950664" elapsed="0.001055"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.952191" elapsed="0.000538"/>
+</kw>
+<var name="${pet}">{'id': 2609, 'name': 'Json Whiskers', 'photoUrls': ['http://cutecats.com/1.jpg', 'http://cutecats.com/2.jpg', 'http://cutecats.com/3.jpg'], 'tags': [], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.951902" elapsed="0.000950"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.953225" elapsed="0.000567"/>
+</kw>
+<var name="${pet}">{'id': 1785459188, 'category': {'id': 1785459188, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785459188, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.953022" elapsed="0.000924"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.954386" elapsed="0.000475"/>
+</kw>
+<var name="${pet}">{'id': 517, 'category': {'id': 1204, 'name': 'string'}, 'name': 'doggie', 'photoUrls': ['string', 'string'], 'tags': [{'id': 5115, 'name': 'string'}, {'id': 5749, 'name': 'string'}], 'status': 'pendin...</var>
+<status status="PASS" start="2026-07-31T11:09:54.954130" elapsed="0.000839"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.955319" elapsed="0.000462"/>
+</kw>
+<var name="${pet}">{'id': 1785462326, 'category': {'id': 1785462326, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785462326, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.955118" elapsed="0.000776"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.956314" elapsed="0.000509"/>
+</kw>
+<var name="${pet}">{'id': 235, 'category': {'id': 0, 'name': 'Aldo'}, 'name': 'Dog', 'photoUrls': ['www.ornekolacakyadim1.com', 'www.ornekolacakyadim2.com'], 'tags': [{'id': 0, 'name': 'Seven'}, {'id': 0, 'name': 'Eight...</var>
+<status status="PASS" start="2026-07-31T11:09:54.956086" elapsed="0.000850"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.957292" elapsed="0.000448"/>
+</kw>
+<var name="${pet}">{'id': 1785468734, 'category': {'id': 1785468734, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785468734, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.957082" elapsed="0.000760"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.958187" elapsed="0.000399"/>
+</kw>
+<var name="${pet}">{'id': 1785469974, 'category': {'id': 1785469974, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785469974, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.957998" elapsed="0.000682"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.958972" elapsed="0.000376"/>
+</kw>
+<var name="${pet}">{'id': 1785469975, 'category': {'id': 1785469975, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785469975, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.958805" elapsed="0.000625"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.959694" elapsed="0.000371"/>
+</kw>
+<var name="${pet}">{'id': 1785470050, 'category': {'id': 1785470050, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785470050, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.959544" elapsed="0.000609"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.960437" elapsed="0.000371"/>
+</kw>
+<var name="${pet}">{'id': 1785470132, 'category': {'id': 1785470132, 'name': 'dog'}, 'name': 'hello kity with form updated', 'photoUrls': ['http://foo.bar.com/1', 'http://foo.bar.com/2'], 'tags': [{'id': 1785470132, 'na...</var>
+<status status="PASS" start="2026-07-31T11:09:54.960270" elapsed="0.000621"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.961154" elapsed="0.000356"/>
+</kw>
+<var name="${pet}">{'id': 817, 'category': {'id': 434, 'name': 'dolphin'}, 'photoUrls': [], 'tags': [{'id': 10, 'name': 'settler'}], 'status': 'pending'}</var>
+<status status="PASS" start="2026-07-31T11:09:54.961003" elapsed="0.000592"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.961864" elapsed="0.000386"/>
+</kw>
+<var name="${pet}">{'id': 296748499, 'category': {'id': 0, 'name': 'squirrel'}, 'name': 'UpdatedPetName', 'photoUrls': ['https://picsum.photos/seed/XexUk4uv/3143/1750', 'https://loremflickr.com/1264/3552?lock=2322965634...</var>
+<status status="PASS" start="2026-07-31T11:09:54.961712" elapsed="0.000626"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.962615" elapsed="0.000395"/>
+</kw>
+<var name="${pet}">{'id': 766166325, 'category': {'id': 0, 'name': 'elephant'}, 'name': 'Daisy', 'photoUrls': ['https://picsum.photos/seed/HD8EgF3/2994/199', 'https://picsum.photos/seed/xvTU7FeUW/25/3242'], 'tags': [{'i...</var>
+<status status="PASS" start="2026-07-31T11:09:54.962457" elapsed="0.000638"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.963368" elapsed="0.000373"/>
+</kw>
+<var name="${pet}">{'id': 16070974, 'category': {'id': 58104089, 'name': 'do fugiat laborum ut'}, 'name': 'dog', 'photoUrls': ['Ut nisi Excepteur do', 'enim ullamco adipisicing sunt'], 'tags': [{'id': 95465410, 'name': ...</var>
+<status status="PASS" start="2026-07-31T11:09:54.963213" elapsed="0.000614"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.964113" elapsed="0.000358"/>
+</kw>
+<var name="${pet}">{'id': 32588349, 'category': {'id': 46161566, 'name': 'aliquip in dol'}, 'name': 'doggie', 'photoUrls': ['Excepteur nulla voluptate labore esse', 'elit non'], 'tags': [{'id': -18619507, 'name': 'labor...</var>
+<status status="PASS" start="2026-07-31T11:09:54.963943" elapsed="0.000612"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.964823" elapsed="0.000623"/>
+</kw>
+<var name="${pet}">{'id': 82321725, 'category': {'id': -45407209, 'name': 'enim occaecat eiusmod ipsum culpa'}, 'name': 'doggie', 'photoUrls': ['anim sed', 'tempor consectetur'], 'tags': [{'id': -59691479, 'name': 'veni...</var>
+<status status="PASS" start="2026-07-31T11:09:54.964669" elapsed="0.000918"/>
+</iter>
+<iter>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pet}[status]</arg>
+<arg>pending</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T11:09:54.966037" elapsed="0.000565"/>
+</kw>
+<var name="${pet}">{'id': 267861, 'category': {'id': 1, 'name': 'Dogs'}, 'name': 'UpdatedWorkflowDog-267861', 'photoUrls': ['https://example.com/photo1.jpg'], 'tags': [{'id': 1, 'name': 'test-tag'}], 'status': 'pending'...</var>
+<status status="PASS" start="2026-07-31T11:09:54.965761" elapsed="0.001007"/>
+</iter>
+<var>${pet}</var>
+<value>@{response.json()}</value>
+<status status="PASS" start="2026-07-31T11:09:35.378149" elapsed="19.588713"/>
+</for>
+<status status="PASS" start="2026-07-31T11:09:34.212802" elapsed="20.755376"/>
 </test>
 <kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
-<msg time="2026-07-31T09:58:28.860481" level="INFO">Deleting All Sessions</msg>
+<msg time="2026-07-31T11:09:56.868768" level="INFO">Deleting All Sessions</msg>
 <doc>Removes all the session objects</doc>
-<status status="PASS" start="2026-07-31T09:58:27.585446" elapsed="1.275634"/>
+<status status="PASS" start="2026-07-31T11:09:55.027641" elapsed="1.841798"/>
 </kw>
-<status status="PASS" start="2026-07-31T09:57:45.637329" elapsed="43.224041"/>
+<status status="PASS" start="2026-07-31T11:09:32.614450" elapsed="24.255321"/>
 </suite>
-<status status="PASS" start="2026-07-31T09:57:45.629427" elapsed="43.244495"/>
+<status status="PASS" start="2026-07-31T11:09:32.594487" elapsed="24.283145"/>
 </suite>
-<status status="PASS" start="2026-07-31T09:57:45.567732" elapsed="43.312174"/>
+<status status="PASS" start="2026-07-31T11:09:32.526618" elapsed="24.357219"/>
 </suite>
 <statistics>
 <total>
-<stat pass="6" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="AutomationProjectVS" id="s1" pass="6" fail="0" skip="0">AutomationProjectVS</stat>
-<stat name="Demo4 Api Suite" id="s1-s1" pass="6" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite</stat>
-<stat name="Demo2 Post Put Delete Suite" id="s1-s1-s1" pass="6" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite.Demo2 Post Put Delete Suite</stat>
+<stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
+<stat name="Demo4 Api Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite</stat>
+<stat name="Demo1 Get Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite.Demo1 Get Suite</stat>
 </suite>
 </statistics>
 <errors>

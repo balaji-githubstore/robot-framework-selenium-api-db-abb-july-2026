@@ -15,7 +15,6 @@ TC1 Add Valid Pet To Store
     Should Be Equal As Strings    ${response.json()}[id]    1808
     Should Be Equal As Strings    ${response.json()}[name]    doggie-1808
 
-
 TC2 Update Valid Pet To Store
     ${req_json_body}    Get File For Streaming Upload    path=${EXECDIR}${/}test-data${/}update_pet.json
     &{headers}     Create Dictionary    content-type=application/json    connection=keep-alive

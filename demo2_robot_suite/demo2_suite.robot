@@ -53,3 +53,20 @@ TC6
     Log To Console    ${TEST_NAME}
     Log To Console    ${SUITE_NAME}
     Log To Console    ${EXECDIR}${/}test-data${/}new_pet.json
+
+
+TC7 For loop
+    @{fruits}     Create List    mango    orange    banana    grapes
+    ${list_count}    Get Length    ${fruits}
+    Log To Console    ${list_count}
+    FOR    ${i}    IN RANGE     0    ${list_count} 
+        Log To Console    ${fruits}[${i}]
+    END
+    
+TC8 For each - Advance for loop
+    @{fruits}     Create List    mango    orange    banana    grapes
+    
+    FOR   ${fruit}  IN    @{fruits} 
+        Log To Console    ${fruit}
+    END
+    

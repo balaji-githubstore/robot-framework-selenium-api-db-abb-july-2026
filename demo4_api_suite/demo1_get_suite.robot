@@ -40,3 +40,25 @@ TC4 Find Pet By Status Query Parameter
 
 # for loop
 # advance for loop - foreach
+
+TC5 Find Pet By Status Query Parameter
+    ${response}     GET On Session    alias=petstore    url=/pet/findByStatus?status=pending  expected_status=200
+    Log    ${response.json()}
+    Log    ${response.json()}[0]
+
+    ${pet_count}   Get Length    ${response.json()}
+
+    FOR    ${i}    IN RANGE     0    ${pet_count}
+        # Log To Console    ${response.json()}[${i}][status]
+        Should Be Equal As Strings    ${response.json()}[${i}][status]    pending
+    END
+
+
+TC6 Find Pet By Status Query Parameter
+    ${response}     GET On Session    alias=petstore    url=/pet/findByStatus?status=pending  expected_status=200
+    Log    ${response.json()}
+    Log    ${response.json()}[0]
+
+    FOR   ${pet}  IN    @{response.json()}
+        Should Be Equal As Strings    ${pet}[status]    pending
+    END

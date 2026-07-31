@@ -3,7 +3,7 @@ Library   SeleniumLibrary
 
 *** Test Cases ***
 TC1 Launch Browser and Title
-    Open Browser    browser=chrome
+    Open Browser    browser=chrome    
     Go To    url=https://www.google.com/
     # get title and print 
     ${actual_title}     Get Title

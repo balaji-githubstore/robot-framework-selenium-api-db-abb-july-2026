@@ -57,6 +57,7 @@ TC5 Javascript Option 2
     # Maximize Browser Window
     Set Selenium Implicit Wait    20s
     Go To    url=https://www.malaysiaairlines.com/us/en/home.html
+    Wait Until Element Is Visible    xpath=//span[text()='Accept all cookies']    timeout=30s
     Click Element    xpath=//span[text()='Accept all cookies']
     Click Element    xpath=//span[text()='Multi-city']
 

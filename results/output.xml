@@ -1,46 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-30T17:34:07.802041" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-31T09:57:45.559191" rpa="false" schemaversion="5">
 <suite id="s1" name="AutomationProjectVS" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS">
 <suite id="s1-s1" name="Demo4 Api Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite">
 <suite id="s1-s1-s1" name="Demo2 Post Put Delete Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo4_api_suite\demo2_post_put_delete_suite.robot">
 <kw name="Create Session" owner="RequestsLibrary" type="SETUP">
-<msg time="2026-07-30T17:34:07.921062" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-07-31T09:57:45.930437" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=petstore</arg>
 <arg>url=https://petstore.swagger.io/v2</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-07-30T17:34:07.920784" elapsed="0.000546"/>
+<status status="PASS" start="2026-07-31T09:57:45.929650" elapsed="0.001525"/>
 </kw>
-<test id="s1-s1-s1-t1" name="TC2 Update Valid Pet To Store" line="17">
+<test id="s1-s1-s1-t1" name="TC1 Add Valid Pet To Store" line="8">
 <kw name="Get File For Streaming Upload" owner="RequestsLibrary">
-<msg time="2026-07-30T17:34:07.926366" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt;</msg>
+<msg time="2026-07-31T09:57:47.744239" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\new_pet.json'&gt;</msg>
+<var>${req_json_body}</var>
+<arg>path=${EXECDIR}${/}test-data${/}new_pet.json</arg>
+<doc>Opens and returns a file descriptor of a specified file to be passed as ``data`` parameter
+to other requests keywords.</doc>
+<status status="PASS" start="2026-07-31T09:57:45.953085" elapsed="1.791462"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-31T09:57:48.601530" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive | api-key=special-key }</msg>
+<var>&amp;{headers}</var>
+<arg>content-type=application/json</arg>
+<arg>connection=keep-alive</arg>
+<arg>api-key=special-key</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-31T09:57:47.745538" elapsed="0.856391"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-07-31T09:57:50.113226" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'connection': 'keep-alive', 'content-type': 'application/json', 'api-key': 'special-key', 'Content-Length': '240'} 
+ body=&lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\new_pet.json'&gt; 
+ </msg>
+<msg time="2026-07-31T09:57:50.113932" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Jul 2026 04:27:50 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"available"} 
+ </msg>
+<msg time="2026-07-31T09:57:50.116082" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-31T09:57:50.118007" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${req_json_body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-31T09:57:48.602921" elapsed="1.515375"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-07-31T09:57:51.143555" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808', 'photoUrls': ['string'], 'tags': [{'id': 0, 'name': 'string'}], 'status': 'available'}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-07-31T09:57:50.119567" elapsed="1.024477"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-07-31T09:57:52.207721" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>1808</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:57:51.144982" elapsed="1.063144"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<arg>doggie-1808</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:57:52.208870" elapsed="1.417846"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:57:45.931583" elapsed="7.695971"/>
+</test>
+<test id="s1-s1-s1-t2" name="TC2 Update Valid Pet To Store" line="19">
+<kw name="Get File For Streaming Upload" owner="RequestsLibrary">
+<msg time="2026-07-31T09:57:57.592172" level="INFO">${req_json_body} = &lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt;</msg>
 <var>${req_json_body}</var>
 <arg>path=${EXECDIR}${/}test-data${/}update_pet.json</arg>
 <doc>Opens and returns a file descriptor of a specified file to be passed as ``data`` parameter
 to other requests keywords.</doc>
-<status status="PASS" start="2026-07-30T17:34:07.925932" elapsed="0.000564"/>
+<status status="PASS" start="2026-07-31T09:57:56.849145" elapsed="0.743618"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-07-30T17:34:07.927354" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive }</msg>
+<msg time="2026-07-31T09:57:58.170091" level="INFO">&amp;{headers} = { content-type=application/json | connection=keep-alive }</msg>
 <var>&amp;{headers}</var>
 <arg>content-type=application/json</arg>
 <arg>connection=keep-alive</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-07-30T17:34:07.926802" elapsed="0.000655"/>
+<status status="PASS" start="2026-07-31T09:57:57.593493" elapsed="0.577019"/>
 </kw>
 <kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2026-07-30T17:34:08.880712" level="INFO">PUT Request : url=https://petstore.swagger.io/v2/pet 
+<msg time="2026-07-31T09:57:59.283445" level="INFO">PUT Request : url=https://petstore.swagger.io/v2/pet 
  path_url=/v2/pet 
  headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '255'} 
  body=&lt;_io.BufferedReader name='D:\\Mine\\Company\\ABB Robot Framework July 2026\\AutomationProjectVS\\test-data\\update_pet.json'&gt; 
  </msg>
-<msg time="2026-07-30T17:34:08.882448" level="INFO">PUT Response : url=https://petstore.swagger.io/v2/pet 
+<msg time="2026-07-31T09:57:59.283882" level="INFO">PUT Response : url=https://petstore.swagger.io/v2/pet 
  status=200, reason=OK 
- headers={'Date': 'Thu, 30 Jul 2026 12:04:09 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ headers={'Date': 'Fri, 31 Jul 2026 04:28:00 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
  body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808-update","photoUrls":["string"],"tags":[{"id":450,"name":"updated tags"}],"status":"available"} 
  </msg>
-<msg time="2026-07-30T17:34:08.883031" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2026-07-31T09:57:59.284879" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2026-07-30T17:34:08.886216" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-07-31T09:57:59.285908" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=petstore</arg>
 <arg>url=/pet</arg>
@@ -48,37 +112,191 @@ to other requests keywords.</doc>
 <arg>data=${req_json_body}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-07-30T17:34:07.927739" elapsed="0.959183"/>
+<status status="PASS" start="2026-07-31T09:57:58.171383" elapsed="1.114780"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-07-30T17:34:08.889975" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808-update', 'photoUrls': ['string'], 'tags': [{'id': 450, 'name': 'updated tags'}], 'status': 'available'}</msg>
+<msg time="2026-07-31T09:58:00.113051" level="INFO">{'id': 1808, 'category': {'id': 0, 'name': 'string'}, 'name': 'doggie-1808-update', 'photoUrls': ['string'], 'tags': [{'id': 450, 'name': 'updated tags'}], 'status': 'available'}</msg>
 <arg>${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-07-30T17:34:08.888633" elapsed="0.001725"/>
+<status status="PASS" start="2026-07-31T09:57:59.287210" elapsed="0.826363"/>
 </kw>
-<status status="PASS" start="2026-07-30T17:34:07.921515" elapsed="0.969516"/>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-07-31T09:58:00.736720" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>1808</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:58:00.114886" elapsed="0.622318"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<arg>doggie-1808-update</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:58:00.738143" elapsed="1.351565"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:57:53.645603" elapsed="8.444962"/>
+</test>
+<test id="s1-s1-s1-t3" name="TC3 Test Valid Pet Id From Store" line="29">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-31T09:58:06.819105" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/1808 
+ path_url=/v2/pet/1808 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-07-31T09:58:06.819645" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/1808 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Jul 2026 04:28:07 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":1808,"category":{"id":0,"name":"string"},"name":"doggie-1808-update","photoUrls":["string"],"tags":[{"id":450,"name":"updated tags"}],"status":"available"} 
+ </msg>
+<msg time="2026-07-31T09:58:06.820378" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-31T09:58:06.821619" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet/1808</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-31T09:58:04.168344" elapsed="2.653571"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-07-31T09:58:07.447181" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>1808</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:58:06.823336" elapsed="0.624203"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<arg>doggie-1808-update</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:58:07.448321" elapsed="0.928321"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:58:02.108633" elapsed="6.268778"/>
+</test>
+<test id="s1-s1-s1-t4" name="TC4 Delete Valid Pet From Store" line="34">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-31T09:58:12.544751" level="INFO">&amp;{headers} = { api_key=special-key }</msg>
+<var>&amp;{headers}</var>
+<arg>api_key=special-key</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-31T09:58:11.568220" elapsed="0.977177"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-07-31T09:58:15.619365" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/1808 
+ path_url=/v2/pet/1808 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'api_key': 'special-key', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-07-31T09:58:15.620463" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/1808 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Jul 2026 04:28:16 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"1808"} 
+ </msg>
+<msg time="2026-07-31T09:58:15.621316" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-31T09:58:15.622363" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet/1808</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-31T09:58:12.546546" elapsed="3.076252"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-07-31T09:58:16.457016" level="INFO">{'code': 200, 'type': 'unknown', 'message': '1808'}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-07-31T09:58:15.624178" elapsed="0.833431"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[message]</arg>
+<arg>1808</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-07-31T09:58:16.458590" elapsed="0.917717"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:58:08.393156" elapsed="8.983897"/>
+</test>
+<test id="s1-s1-s1-t5" name="TC5 Test Valid Pet Id From Store" line="41">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-31T09:58:23.450241" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/1808 
+ path_url=/v2/pet/1808 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-07-31T09:58:23.451424" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/1808 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 31 Jul 2026 04:28:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":1,"type":"error","message":"Pet not found"} 
+ </msg>
+<msg time="2026-07-31T09:58:23.452063" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-31T09:58:23.453307" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet/1808</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-31T09:58:21.104301" elapsed="2.349655"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:58:17.395968" elapsed="6.058773"/>
+</test>
+<test id="s1-s1-s1-t6" name="TC6 Delete Invalid Pet From Store" line="44">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-31T09:58:25.615043" level="INFO">&amp;{headers} = { api_key=special-key }</msg>
+<var>&amp;{headers}</var>
+<arg>api_key=special-key</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-31T09:58:24.502836" elapsed="1.112480"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-07-31T09:58:27.575713" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/1808 
+ path_url=/v2/pet/1808 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'api_key': 'special-key', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-07-31T09:58:27.575961" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/1808 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 31 Jul 2026 04:28:28 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body=None 
+ </msg>
+<msg time="2026-07-31T09:58:27.576384" level="INFO">D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\.venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-31T09:58:27.576989" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet/1808</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-31T09:58:25.615975" elapsed="1.961229"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:58:23.464253" elapsed="4.113505"/>
 </test>
 <kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
-<msg time="2026-07-30T17:34:08.917351" level="INFO">Deleting All Sessions</msg>
+<msg time="2026-07-31T09:58:28.860481" level="INFO">Deleting All Sessions</msg>
 <doc>Removes all the session objects</doc>
-<status status="PASS" start="2026-07-30T17:34:08.916856" elapsed="0.001033"/>
+<status status="PASS" start="2026-07-31T09:58:27.585446" elapsed="1.275634"/>
 </kw>
-<status status="PASS" start="2026-07-30T17:34:07.849707" elapsed="1.068394"/>
+<status status="PASS" start="2026-07-31T09:57:45.637329" elapsed="43.224041"/>
 </suite>
-<status status="PASS" start="2026-07-30T17:34:07.846233" elapsed="1.080419"/>
+<status status="PASS" start="2026-07-31T09:57:45.629427" elapsed="43.244495"/>
 </suite>
-<status status="PASS" start="2026-07-30T17:34:07.806777" elapsed="1.126495"/>
+<status status="PASS" start="2026-07-31T09:57:45.567732" elapsed="43.312174"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="AutomationProjectVS" id="s1" pass="1" fail="0" skip="0">AutomationProjectVS</stat>
-<stat name="Demo4 Api Suite" id="s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite</stat>
-<stat name="Demo2 Post Put Delete Suite" id="s1-s1-s1" pass="1" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite.Demo2 Post Put Delete Suite</stat>
+<stat name="AutomationProjectVS" id="s1" pass="6" fail="0" skip="0">AutomationProjectVS</stat>
+<stat name="Demo4 Api Suite" id="s1-s1" pass="6" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite</stat>
+<stat name="Demo2 Post Put Delete Suite" id="s1-s1-s1" pass="6" fail="0" skip="0">AutomationProjectVS.Demo4 Api Suite.Demo2 Post Put Delete Suite</stat>
 </suite>
 </statistics>
 <errors>

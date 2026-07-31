@@ -6,9 +6,26 @@ Library    Collections
 ${BROWSER_NAME}    chrome
 @{COLORS}    red    green    yellow    
 &{EMPLOYEE_DIC}    id=10    name=bala   role=trainer
+ge
+*** Keywords ***
+Calculate Area Of Circle
+    [Arguments]    ${radius}
+    [Documentation]   ffdfdfddffd - pass arguments - only number
+    ${output}     Evaluate    3.14*${radius}*${radius}
+    Return From Keyword     ${output} 
+
+Get My Name
+    Return From Keyword    Balaji
 
 
 *** Test Cases ***
+TC1_Demo
+    ${name}   Get My Name
+    Log To Console    ${name}
+    ${res}   Calculate Area Of Circle    radius=3
+    Log To Console    ${res} 
+
+
 TC1
     ${BROWSER_NAME}    Set Variable    FIREFOX
     Log To Console    ${BROWSER_NAME}

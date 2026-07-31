@@ -4,11 +4,13 @@ Library    String
 
 *** Test Cases ***
 TC1
+    [Tags]    smoke    regression
     Log To Console    message=Balaji Dinakaran
     Log To Console    message=hello
     Log To Console    hello2
 
 TC2 
+    [Tags]    smoke
     ${num1}   Set Variable    10
     ${num2}   Set Variable    20
     Log To Console   message=${num1}

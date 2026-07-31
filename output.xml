@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-31T17:56:29.371017" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo1 Suite">
+<suite id="s1-s1" name="Demo1 Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo2_robot_suite\demo1_suite.robot">
+<test id="s1-s1-t1" name="TC1" line="6">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=Balaji Dinakaran</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.456159" elapsed="0.000926"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=hello</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.457493" elapsed="0.000406"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>hello2</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.458311" elapsed="0.000611"/>
+</kw>
+<tag>regression</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-07-31T17:56:29.454788" elapsed="0.004762"/>
+</test>
+<test id="s1-s1-t2" name="TC2" line="12">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-31T17:56:29.462403" level="INFO">${num1} = 10</msg>
+<var>${num1}</var>
+<arg>10</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.461732" elapsed="0.000831"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-31T17:56:29.464037" level="INFO">${num2} = 20</msg>
+<var>${num2}</var>
+<arg>20</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.463114" elapsed="0.001018"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=${num1}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.464654" elapsed="0.000914"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=${num2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T17:56:29.465972" elapsed="0.001051"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2026-07-31T17:56:29.460797" elapsed="0.006901"/>
+</test>
+<status status="PASS" start="2026-07-31T17:56:29.437199" elapsed="0.031939"/>
+</suite>
+<status status="PASS" start="2026-07-31T17:56:29.374104" elapsed="0.096982"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">regression</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Demo1 Suite" id="s1" pass="2" fail="0" skip="0">Demo1 Suite</stat>
+<stat name="Demo1 Suite" id="s1-s1" pass="2" fail="0" skip="0">Demo1 Suite.Demo1 Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

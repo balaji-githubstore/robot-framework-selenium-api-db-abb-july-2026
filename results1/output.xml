@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-07-31T14:43:16.253582" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo1 Suite" source="D:\Mine\Company\ABB Robot Framework July 2026\AutomationProjectVS\demo2_robot_suite\demo1_suite.robot">
+<test id="s1-t1" name="TC1" line="6">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=Balaji Dinakaran</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T14:43:16.320199" elapsed="0.000771"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=hello</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T14:43:16.321534" elapsed="0.000592"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>hello2</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-31T14:43:16.322414" elapsed="0.000482"/>
+</kw>
+<status status="PASS" start="2026-07-31T14:43:16.318842" elapsed="0.004354"/>
+</test>
+<status status="PASS" start="2026-07-31T14:43:16.255809" elapsed="0.068712"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Demo1 Suite" id="s1" pass="1" fail="0" skip="0">Demo1 Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

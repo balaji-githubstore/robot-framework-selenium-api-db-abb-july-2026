@@ -32,7 +32,9 @@ TC3 Javascript alert
     Open Browser    browser=chrome
     Maximize Browser Window
     Set Selenium Implicit Wait    20s
+    Set Selenium Timeout    20s
     Go To    url=https://www.nasscom.in/nasscom-membership
+    Wait Until Page Contains Element    id=calculate-fee    
     # click on calculate fee
     Scroll Element Into View    id=calculate-fee
     Click Element    id=calculate-fee

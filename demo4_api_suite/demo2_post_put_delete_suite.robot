@@ -21,3 +21,6 @@ TC2 Update Valid Pet To Store
     ${response}     PUT On Session    alias=petstore    url=/pet    
     ...    headers=${headers}    data=${req_json_body}    expected_status=200
     Log    ${response.json()}
+
+# TC3 Delete Valid Pet From Store
+    
